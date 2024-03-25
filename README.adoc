@@ -1,0 +1,23 @@
+= Ticketsystem
+:doctype: book
+:toc: left
+:toc-title: Table of Contents
+:toclevels: 4
+
+This is my first Project with React and Go. It is a simple Ticketsystem.
+
+== General Information for this Ticketsystem
+
+This ticketsystem is a simple system to manage tickets. It is written in React and Go. The Database is a PostgreSQL Database.
+
+== Technologies
+
+=== React
+
+React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.
+
+More information about React can be found here: https://reactjs.org/
+
+==== React Readme
+
+link:app/frontend/README.adoc[README]
