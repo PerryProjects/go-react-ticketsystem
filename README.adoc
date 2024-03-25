@@ -12,12 +12,14 @@ This ticketsystem is a simple system to manage tickets. It is written in React a
 
 == Technologies
 
-=== React
+=== Frontend
+
+==== React
 
 React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.
 
 More information about React can be found here: https://reactjs.org/
 
-==== React Readme
+==== README
 
 link:app/frontend/README.adoc[README]
