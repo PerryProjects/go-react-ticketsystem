@@ -23,3 +23,11 @@ More information about React can be found here: https://reactjs.org/
 ==== README
 
 link:app/frontend/README.adoc[README]
+
+=== Backend
+
+==== Go
+
+Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
+
+More information about Go can be found here: https://golang.org/

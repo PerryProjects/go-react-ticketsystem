@@ -4,51 +4,45 @@
 /node_modules
 /.pnp
 .pnp.js
+.yarn/install-state.gz
 
 # testing
 /coverage
+
+# next.js
+/.next/
+/out/
 
 # production
 /build
 
 # misc
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+*.pem
 
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# local env files
+.env*.local
 
-### react template
-.DS_*
-*.log
-logs
-**/*.backup.*
-**/*.back.*
+# vercel
+.vercel
 
-node_modules
-bower_components
+# typescript
+*.tsbuildinfo
+next-env.d.ts
 
-*.sublime*
-
-psd
-thumb
-sketch
-
-### yarn template
-# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
-
+# yarn
+.pnp.*
 .yarn/*
-!.yarn/releases
 !.yarn/patches
 !.yarn/plugins
+!.yarn/releases
 !.yarn/sdks
 !.yarn/versions
 
-# and uncomment the following lines
-# .pnp.*
-
+# eslint
+.eslintcache
