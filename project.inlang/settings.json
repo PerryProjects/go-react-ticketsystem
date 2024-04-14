@@ -10,7 +10,7 @@
     ],
     "plugin.inlang.i18next": {
       "pathPattern": {
-        "common": "./public/locales/{{languageTag}}/common.json"
+        "common": "./app/frontend/public/locales/{{languageTag}}/common.json"
       }
     }
   }
