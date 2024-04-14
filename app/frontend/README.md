@@ -34,19 +34,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-
-### Plugins
-
-- [x] I18n
-    - [x] Config
-- [x] Eslint
-    - [x] Config
-- [x] [next-i18next](https://github.com/i18next/next-i18next)
-    - [ ] Config
-- [x] [Next-Auth](https://next-auth.js.org/getting-started/example)
-    - [ ] Config
-
-#### Maybe interesting Plugins
-- [ ] [next-optimized-images](https://www.npmjs.com/package/next-optimized-images)
-- [ ] [nextjs-progressbar](https://www.npmjs.com/package/nextjs-progressbar)
