@@ -75,10 +75,6 @@ export default antfu(
                     ],
                 },
             ],
-            'indent': [
-                'error',
-                4,
-            ],
             'react-refresh/only-export-components': 'off',
 
             // antfu

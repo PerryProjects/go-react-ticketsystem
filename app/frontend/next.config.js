@@ -17,10 +17,6 @@ const __dirname = path.dirname(__filename);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    i18n:  {
-        defaultLocale: 'de',
-        locales: ['en', 'de'],
-    },
     eslint: {
         dirs: ['.'],
     },
