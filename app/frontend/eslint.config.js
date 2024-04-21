@@ -1,19 +1,17 @@
 import antfu from '@antfu/eslint-config';
 
-import {FlatCompat} from '@eslint/eslintrc';  
-  
-const compat = new FlatCompat({recommendedConfig: []});  
+import {FlatCompat} from '@eslint/eslintrc';
+
+const compat = new FlatCompat({recommendedConfig: []});
 
 export default antfu(
     {
         stylistic: {
             indent: 4,
-            quotes: 'single',  
+            quotes: 'single',
         },
- 
+
         react: true,
-        scss: true,
-        javascript: true,
         jsx: true,
 
         settings: {
@@ -25,28 +23,22 @@ export default antfu(
             },
         },
 
-        // Disable jsonc and yaml support    
+        // Disable jsonc and yaml support
         jsonc: false,
         yaml: false,
- 
+
         typescript: {
             tsconfigPath: 'tsconfig.json',
         },
 
         languageOptions: {
             parserOptions: {
-                project: ['./tsconfig.json'], // Specify it only for TypeScript files  
-            },
-        },
-
-        settings: {
-            react: {
-                version: 'detect',
+                project: './tsconfig.json',
             },
         },
 
         rules: {
-        // ts  
+            // ts
             'ts/prefer-ts-expect-error': 'off',
             'ts/consistent-type-imports': 'off',
             'ts/no-unsafe-call': 'off',
@@ -69,7 +61,7 @@ export default antfu(
             // react
             'react/jsx-indent': [
                 'error',
-                4, 
+                4,
             ],
             'react/react-in-jsx-scope': 0,
             'react/prefer-stateless-function': 0,
@@ -87,25 +79,26 @@ export default antfu(
                 'error',
                 4,
             ],
+            'react-refresh/only-export-components': 'off',
 
-            // antfu  
+            // antfu
             'antfu/if-newline': 'off',
 
-            // eslint  
+            // eslint
             'curly': ['error', 'multi-line'],
             'no-console': 'warn',
             'style/array-element-newline': [
                 'error',
                 {
                     ArrayExpression: 'consistent',
-                    ArrayPattern: { minItems: 3 },
+                    ArrayPattern: {minItems: 3},
                 },
             ],
-            'style/linebreak-style': [0, 'error', 'windows'],
+            'style/linebreak-style': [0, 'windows'],
             'n/global-require': 0,
             'eslint linebreak-style': [0, 'error', 'windows'],
-            'no-underscore-dangle': [2, { allowAfterThis: true }],
-            'no-param-reassign': [2, { props: false }],
+            'no-underscore-dangle': [2, {allowAfterThis: true}],
+            'no-param-reassign': [2, {props: false}],
             'style/max-len': [
                 2,
                 {
@@ -121,7 +114,7 @@ export default antfu(
             'style/object-curly-spacing': 'off',
             'style/no-trailing-spaces': 'off',
             'style/brace-style': ['error', '1tbs'],
-            'style/indent': ['error', 4, { SwitchCase: 1 }],
+            'style/indent': ['error', 4, {SwitchCase: 1}],
             'style/array-bracket-newline': ['error', 'consistent'],
             'style/object-curly-newline': [
                 'error',
@@ -133,13 +126,13 @@ export default antfu(
             ],
             'node/prefer-global/process': 'off',
 
-            // import  
+            // import
             'import/extensions': 'off',
             'import/no-unresolved': 'off',
             'import/prefer-default-export': 'off',
             'import/no-extraneous-dependencies': 'off',
 
-            // style  
+            // style
             'style/arrow-parens': ['error', 'always'],
             'style/semi': [2, 'always'],
             'style/comma-dangle': [
@@ -153,9 +146,6 @@ export default antfu(
                 },
             ],
         },
-        gitignore: {
-            files: ['.gitignore'],
-        },
     },
     {
         ignores: [
@@ -163,19 +153,19 @@ export default antfu(
             '.gitignore',
             '.yarn',
             'node_modules',
-            '.husky',
+            '.husky', 
             '.env*',
             'README.md',
             'yarn.lock',
         ],
     },
     {
-        files: ['ts/types/**/*.ts'],
+        files: ['@types/**/*.ts'],
         rules: {
-            'style/semi': 'off', 
+            'style/semi': 'off',
         },
     },
     ...compat.config({
         extends: ['plugin:@next/next/core-web-vitals', 'plugin:@next/next/recommended'],
-    })
+    }),
 );

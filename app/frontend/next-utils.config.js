@@ -1,15 +1,11 @@
-const pc = require('picocolors')
+function nextUtilsConfig() {
+    const tsconfigPath = process.env.NEXTJS_TSCONFIG_PATH
+        ? process.env.NEXTJS_TSCONFIG_PATH
+        : './tsconfig.json';
 
-const nextUtilsConfig = () => {
-  const tsconfigPath = process.env.NEXTJS_TSCONFIG_PATH
-    ? process.env.NEXTJS_TSCONFIG_PATH
-    : './tsconfig.json'
-
-  return {
-    tsconfigPath,
-  }
+    return {
+        tsconfigPath,
+    };
 }
 
-module.exports = {
-  loadCustomBuildParams: nextUtilsConfig,
-}
+export const loadCustomBuildParams = nextUtilsConfig;

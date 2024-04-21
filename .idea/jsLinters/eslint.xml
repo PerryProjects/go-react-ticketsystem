@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="EslintConfiguration">
-    <custom-configuration-file used="true" path="$PROJECT_DIR$/app/frontend/.eslintrc.json" />
+    <work-dir-patterns value="\\wsl.localhost\Debian\var\www\ticketsystem\app\frontend" />
+    <custom-configuration-file used="true" path="$PROJECT_DIR$/app/frontend/eslint.config.js" />
     <option name="fix-on-save" value="true" />
   </component>
 </project>
