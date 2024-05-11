@@ -76,7 +76,7 @@ export default async function RootLayout({
                     <Header lng={lng} />
                     <main className='flex h-90 flex-grow'>
                         <div className="flex flex-col md:flex-row flex-grow">
-                            <div className='md:relative z-10 w-full md:w-48'>
+                            <div className='md:relative z-10  w-[300px]'>
                                 <Sidemenu lng={lng} />
                             </div>
                             <section className='flex-1 overflow-y-auto'>

@@ -1,45 +1,51 @@
 'use server';
 
 import { Menu } from 'primereact/menu';
+import { MenuItem } from 'primereact/menuitem';
 import { Locales } from '@/i18n/settings';
 
 export default async function Sidemenu({ lng }: { lng: Locales }) {
-    const items = [
+    const items: MenuItem[] = [
         {
-            label: 'Documents',
-            items: [
-                {
-                    label: 'New',
-                    icon: 'pi pi-plus'
-                },
-                {
-                    label: 'Search',
-                    icon: 'pi pi-search'
-                }
-            ]
+            label: 'Dashboard',
+            icon: 'pi pi-fw pi-home',
         },
         {
-            label: 'Profile',
+            separator: true,
+        },
+        {
+            label: 'Tickets',
             items: [
                 {
-                    label: 'Settings',
-                    icon: 'pi pi-cog'
+                    label: 'Overview',
+                    icon: 'pi pi-chart-line',
                 },
+            ],
+        },
+        {
+            separator: true,
+        },
+        {
+            label: 'Administration',
+            items: [
                 {
-                    label: 'Logout',
-                    icon: 'pi pi-sign-out'
+                    label: 'Users',
+                    icon: 'pi pi-user',
                 }
-            ]
-        }
+            ],
+        },
     ];
 
     return (
-        <div className="card flex justify-content-center h-full">
-            <Menu pt={{
-                root: {
-                    className: 'rounded-none border-t-0'
-                }
-            }} model={items} />
+        <div className="flex justify-content-center h-full">
+            <Menu
+                pt={{
+                    root: {
+                        className: 'rounded-none border-t-0 w-[300px]',
+                    },
+                }}
+                model={items}
+            />
         </div>
-    )
+    );
 }
