@@ -27,6 +27,19 @@ const nextConfig = {
     sassOptions: {
         includePaths: [path.join(__dirname, 'src/styles')],
     },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'primereact.org',
+            },
+            {
+                protocol: 'https',
+                hostname: 'www.primefaces.org',
+            },
+        ],
+        formats: ['image/avif', 'image/webp'],
+    },
 };
 
 export default nextConfig;

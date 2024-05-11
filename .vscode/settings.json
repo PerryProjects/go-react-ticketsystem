@@ -74,5 +74,10 @@
     "yaml",
     "toml",
     "astro",
+  ],
+  "cSpell.words": [
+    "inputtext",
+    "primereact",
+    "webp"
   ]
 }

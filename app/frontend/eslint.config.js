@@ -26,7 +26,7 @@ export default antfu(
         // Disable jsonc and yaml support
         jsonc: false,
         yaml: false,
-
+ 
         typescript: {
             tsconfigPath: 'tsconfig.json',
         },
@@ -59,14 +59,10 @@ export default antfu(
             ],
 
             // react
-            'react/jsx-indent': [
-                'error',
-                4,
-            ],
             'react/react-in-jsx-scope': 0,
             'react/prefer-stateless-function': 0,
             'react/jsx-one-expression-per-line': 0,
-            'react/jsx-filename-extension': [
+            'react-naming-convention/filename-extension': [
                 1,
                 {
                     extensions: [
@@ -83,44 +79,18 @@ export default antfu(
             // eslint
             'curly': ['error', 'multi-line'],
             'no-console': 'warn',
-            'style/array-element-newline': [
-                'error',
-                {
-                    ArrayExpression: 'consistent',
-                    ArrayPattern: {minItems: 3},
-                },
-            ],
-            'style/linebreak-style': [0, 'windows'],
-            'n/global-require': 0,
             'eslint linebreak-style': [0, 'error', 'windows'],
             'no-underscore-dangle': [2, {allowAfterThis: true}],
             'no-param-reassign': [2, {props: false}],
-            'style/max-len': [
-                2,
-                {
-                    code: 1360,
-                    tabWidth: 4,
-                    ignoreUrls: true,
-                },
-            ],
             'no-unused-vars': 'off',
             'prefer-template': 'off',
             'no-plusplus': 'off',
             'class-methods-use-this': 'off',
-            'style/object-curly-spacing': 'off',
-            'style/no-trailing-spaces': 'off',
-            'style/brace-style': ['error', '1tbs'],
-            'style/indent': ['error', 4, {SwitchCase: 1}],
-            'style/array-bracket-newline': ['error', 'consistent'],
-            'style/object-curly-newline': [
-                'error',
-                {
-                    multiline: true,
-                    minProperties: 2,
-                    consistent: true,
-                },
-            ],
-            'node/prefer-global/process': 'off',
+            
+            // node
+            'n/global-require': 0,
+            'node/global-require': 0,
+            'node/prefer-global/process': 0,
 
             // import
             'import/extensions': 'off',
@@ -141,6 +111,40 @@ export default antfu(
                     functions: 'ignore',
                 },
             ],
+            'style/object-curly-spacing': 'off',
+            'style/no-trailing-spaces': 'off',
+            'style/brace-style': ['error', '1tbs'],
+            'style/indent': ['error', 4, {SwitchCase: 1}],
+            'style/array-bracket-newline': ['error', 'consistent'],
+            'style/jsx-one-expression-per-line': 'off',      
+            'style/object-curly-newline': [
+                'error',
+                {
+                    multiline: true,
+                    minProperties: 2,
+                    consistent: true,
+                },
+            ],
+            'style/max-len': [
+                2,
+                {
+                    code: 1360,
+                    tabWidth: 4,
+                    ignoreUrls: true,
+                },
+            ],
+            'style/array-element-newline': [
+                'error',
+                {
+                    ArrayExpression: 'consistent',
+                    ArrayPattern: {minItems: 3},
+                },
+            ],
+            'style/jsx-indent': [
+                'error',
+                4,
+            ],
+            'style/linebreak-style': [0, 'windows'],
         },
     },
     {
