@@ -13,8 +13,13 @@
   ],
   "plugin.inlang.i18next": {
     "pathPattern": {
-      "common": "./src/i18n/locales/{languageTag}/common.json"
-    }
+      "common": "./src/i18n/locales/{languageTag}/common.json",
+      "header": "./src/i18n/locales/{languageTag}/header.json"
+    },
+    "variableReferencePattern": [
+      "{{",
+      "}}"
+    ]
   },
   "messageLintRuleLevels": {
     "messageLintRule.inlang.emptyPattern": "error",

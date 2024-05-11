@@ -6,6 +6,6 @@ export default async function Page({ params: { lng } }: { params: { lng: string 
     return (
         <div>
             <h1>{lng} {t('hello')}</h1>
-        </div>  
-    ); 
-}
+        </div>
+    );
+} 

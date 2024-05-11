@@ -31,14 +31,14 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'primereact.org',
-            },
-            {
-                protocol: 'https',
-                hostname: 'www.primefaces.org',
+                hostname: 'primefaces.org',
+                pathname: '**',
             },
         ],
         formats: ['image/avif', 'image/webp'],
+    },
+    compiler: {
+        emotion: true,
     },
 };
 

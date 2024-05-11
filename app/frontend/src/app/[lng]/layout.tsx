@@ -1,8 +1,5 @@
-import '@/styles/globals.scss';
-import 'primeflex/primeflex.scss';
-import 'primereact/resources/themes/lara-light-blue/theme.css';
-import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+import '@/styles/globals.scss';
 
 // Packages
 import { dir } from 'i18next';
@@ -11,8 +8,14 @@ import {
     PrimeReactProvider,
 } from 'primereact/api';
 import { Metadata } from 'next';
-import { supportedLocales } from '@/i18n/settings';
+import { Roboto } from 'next/font/google';
+import Tailwind from 'primereact/passthrough/tailwind';
+import {
+    Locales,
+    supportedLocales,
+} from '@/i18n/settings';
 import Header from '@/components/header';
+import Sidemenu from '@/components/sidemenu';
 
 export async function generateStaticParams() {
     return supportedLocales.map((lng) => ({ lng }));
@@ -37,6 +40,14 @@ export const metadata: Metadata = {
     },
 };
 
+const roboto = Roboto({
+    weight: ['100', '300', '400', '500', '700', '900'],
+    style: 'normal',
+    variable: '--font-roboto',
+    subsets: ['latin'],
+    display: 'swap',
+});
+
 export default async function RootLayout({
     children,
     params: {
@@ -45,19 +56,34 @@ export default async function RootLayout({
 }: {
     children: React.ReactNode
     params: {
-        lng: string
+        lng: Locales
     }
 }) {
     const primeReactSettings: Partial<APIOptions> = {
         ripple: true,
+        unstyled: true,
+        pt: Tailwind,
+        ptOptions: {
+            mergeSections: true,
+            mergeProps: true,
+        },
     };
 
     return (
-        <html lang={lng} dir={dir(lng)}>
+        <html lang={lng} dir={dir(lng)} className={roboto.variable}>
             <PrimeReactProvider value={primeReactSettings}>
-                <body>
-                    <Header />
-                    <main>{children}</main>
+                <body className='h-screen flex flex-col w-screen overflow-hidden'>
+                    <Header lng={lng} />
+                    <main className='flex h-90 flex-grow'>
+                        <div className="flex flex-col md:flex-row flex-grow">
+                            <div className='md:relative z-10 w-full md:w-48'>
+                                <Sidemenu lng={lng} />
+                            </div>
+                            <section className='flex-1 overflow-y-auto'>
+                                {children}
+                            </section>
+                        </div>
+                    </main>
                 </body>
             </PrimeReactProvider>
         </html>

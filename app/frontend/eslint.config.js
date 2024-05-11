@@ -1,6 +1,12 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import antfu from '@antfu/eslint-config';
 
 import {FlatCompat} from '@eslint/eslintrc';
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
 
 const compat = new FlatCompat({recommendedConfig: []});
 
@@ -34,6 +40,7 @@ export default antfu(
         languageOptions: {
             parserOptions: {
                 project: './tsconfig.json',
+                tsconfigRootDir: __dirname,
             },
         },
 
@@ -49,7 +56,7 @@ export default antfu(
             'ts/no-unused-vars': ['error'],
             'ts/explicit-module-boundary-types': 'off',
             'ts/no-unsafe-argument': 'off',
-            'ts/no-unnecessary-type-assertion': 'off',
+            'ts/no-unnecessary-type-assertion': 'off', 
             'ts/prefer-destructuring': ['error'],
             'ts/no-misused-promises': [
                 'error',
@@ -60,7 +67,7 @@ export default antfu(
 
             // react
             'react/react-in-jsx-scope': 0,
-            'react/prefer-stateless-function': 0,
+            'react/prefer-stateless-function': 0, 
             'react/jsx-one-expression-per-line': 0,
             'react-naming-convention/filename-extension': [
                 1,

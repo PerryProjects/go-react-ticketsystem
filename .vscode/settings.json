@@ -2,8 +2,7 @@
   // Enable the ESlint flat config support
   "eslint.useFlatConfig": true,
   // Disable the default formatter, use eslint instead
-  "prettier.enable": false,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   // Auto fix
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
@@ -11,12 +10,13 @@
   },
   "eslint.workingDirectories": [
     {
-      "directory": "./app/frontend"
+      "directory": "./app/frontend/"
     },
     {
       "pattern": "./app/frontend/*"
     }
   ],
+  "eslint.nodePath": "/home/perry/.nvm/versions/node/v20.12.2/bin/node",
   // Silent the stylistic rules in you IDE, but still auto fix them
   "eslint.rules.customizations": [
     {
@@ -74,10 +74,34 @@
     "yaml",
     "toml",
     "astro",
+    "postcss"
   ],
   "cSpell.words": [
+    "inlang",
     "inputtext",
     "primereact",
     "webp"
-  ]
+  ],
+  "editor.inlineSuggest.enabled": true,
+  "terminal.integrated.env.windows": {},
+  "remote.autoForwardPorts": false,
+  "files.autoSave": "onFocusChange",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[postcss]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "eslint.format.enable": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  }, 
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.stickyScroll.enabled": false,
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
 }
