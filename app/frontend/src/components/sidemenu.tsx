@@ -31,7 +31,7 @@ export default async function Sidemenu({ lng }: { lng: Locales }) {
                 {
                     label: 'Users',
                     icon: 'pi pi-user',
-                }
+                },
             ],
         },
     ];

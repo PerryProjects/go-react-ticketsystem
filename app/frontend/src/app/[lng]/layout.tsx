@@ -1,5 +1,5 @@
 import 'primeicons/primeicons.css';
-import '@/styles/globals.scss';
+import '@/styles/globals.css';
 
 // Packages
 import { dir } from 'i18next';
@@ -72,14 +72,14 @@ export default async function RootLayout({
     return (
         <html lang={lng} dir={dir(lng)} className={roboto.variable}>
             <PrimeReactProvider value={primeReactSettings}>
-                <body className='h-screen flex flex-col w-screen overflow-hidden'>
+                <body className="h-screen flex flex-col w-screen overflow-hidden">
                     <Header lng={lng} />
-                    <main className='flex h-90 flex-grow'>
+                    <main className="flex h-90 flex-grow">
                         <div className="flex flex-col md:flex-row flex-grow">
-                            <div className='md:relative z-10  w-[300px]'>
+                            <div className="md:relative z-10  w-[300px]">
                                 <Sidemenu lng={lng} />
                             </div>
-                            <section className='flex-1 overflow-y-auto'>
+                            <section className="flex-1 overflow-y-auto">
                                 {children}
                             </section>
                         </div>

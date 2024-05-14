@@ -49,11 +49,16 @@ export default function Header({ lng }: { lng: Locales }) {
 
     return (
         <header>
-            <Menubar pt={{
-                root: {
-                    className: 'rounded-none'
-                }
-            }} start={start} end={end}></Menubar>
+            <Menubar
+                pt={{
+                    root: {
+                        className: 'rounded-none',
+                    },
+                }}
+                start={start}
+                end={end}
+            >
+            </Menubar>
         </header>
     );
 }

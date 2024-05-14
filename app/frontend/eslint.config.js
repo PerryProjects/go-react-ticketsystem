@@ -1,12 +1,6 @@
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import antfu from '@antfu/eslint-config';
 
 import {FlatCompat} from '@eslint/eslintrc';
-
-const __filename = fileURLToPath(import.meta.url);
-
-const __dirname = path.dirname(__filename);
 
 const compat = new FlatCompat({recommendedConfig: []});
 
@@ -26,21 +20,20 @@ export default antfu(
             },
             'import/resolver': {
                 typescript: {},
-            },
+            }, 
         },
 
         // Disable jsonc and yaml support
-        jsonc: false,
+        jsonc: false, 
         yaml: false,
  
         typescript: {
-            tsconfigPath: 'tsconfig.json',
+            tsconfigPath: './tsconfig.json',
         },
 
         languageOptions: {
             parserOptions: {
                 project: './tsconfig.json',
-                tsconfigRootDir: __dirname,
             },
         },
 
@@ -56,7 +49,7 @@ export default antfu(
             'ts/no-unused-vars': ['error'],
             'ts/explicit-module-boundary-types': 'off',
             'ts/no-unsafe-argument': 'off',
-            'ts/no-unnecessary-type-assertion': 'off', 
+            'ts/no-unnecessary-type-assertion': 'off',
             'ts/prefer-destructuring': ['error'],
             'ts/no-misused-promises': [
                 'error',
@@ -67,7 +60,7 @@ export default antfu(
 
             // react
             'react/react-in-jsx-scope': 0,
-            'react/prefer-stateless-function': 0, 
+            'react/prefer-stateless-function': 0,
             'react/jsx-one-expression-per-line': 0,
             'react-naming-convention/filename-extension': [
                 1,
@@ -153,8 +146,6 @@ export default antfu(
             ],
             'style/linebreak-style': [0, 'windows'],
         },
-    },
-    {
         ignores: [
             '.next',
             '.gitignore',
@@ -162,15 +153,21 @@ export default antfu(
             'node_modules',
             '.husky', 
             '.env*',
-            'README.md',
             'yarn.lock',
+            'README.md',
         ],
     },
     {
-        files: ['@types/**/*.ts'],
-        rules: {
-            'style/semi': 'off',
-        },
+        ignores: [
+            '.next',
+            '.gitignore',
+            '.yarn',
+            'node_modules', 
+            '.husky', 
+            '.env*',
+            'README.md',
+            'yarn.lock',
+        ],
     },
     ...compat.config({
         extends: ['plugin:@next/next/core-web-vitals', 'plugin:@next/next/recommended'],

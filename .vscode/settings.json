@@ -76,6 +76,17 @@
     "astro",
     "postcss"
   ],
+  "eslint.probe": [
+    "astro",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "mdx",
+    "vue",
+    "markdown"
+  ],
   "cSpell.words": [
     "inlang",
     "inputtext",
@@ -101,7 +112,4 @@
   }, 
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.stickyScroll.enabled": false,
-  "[scss]": {
-    "editor.defaultFormatter": "vscode.css-language-features"
-  },
 }

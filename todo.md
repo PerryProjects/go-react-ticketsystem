@@ -6,6 +6,7 @@
     Config {cm:2024-04-14}
 (B) [next-i18next](https://github.com/i18next/next-i18next) {cm:2024-04-14} {c} @I18n 
     Config {cm:2024-04-14}
+(B) [Prettier](https://www.npmjs.com/package/prettier) {c} @Linting
 (B) [Next-Auth](https://next-auth.js.org/getting-started/example) @Auth {c}
     Config
 (B) [Husky](https://www.npmjs.com/package/husky) {c} @Git #config
@@ -22,12 +23,12 @@
     Config
 (B) [React Query](https://www.npmjs.com/package/react-query) {c} @Data
     Config
+(B) [Storybook](https://www.npmjs.com/package/storybook) @Testing 
 
 (F) [next-optimized-images](https://www.npmjs.com/package/next-optimized-images) @Styling #component
 (F) [nextjs-progressbar](https://www.npmjs.com/package/nextjs-progressbar) @Styling #component
-(C) [postcss]( https://www.npmjs.com/package/postcss) @Styling #minify 
+(C) [postcss]( https://www.npmjs.com/package/postcss) @Styling #minify {cm:2024-05-13}
 (C) [cssnano](https://www.npmjs.com/package/cssnano) @Styling #minify
-(D) [Storybook](https://www.npmjs.com/package/storybook) @Testing 
 (D) [Jest](https://www.npmjs.com/package/jest) @Testing #config 
 
 
