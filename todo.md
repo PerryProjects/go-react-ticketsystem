@@ -28,7 +28,7 @@
 (F) [next-optimized-images](https://www.npmjs.com/package/next-optimized-images) @Styling #component
 (F) [nextjs-progressbar](https://www.npmjs.com/package/nextjs-progressbar) @Styling #component
 (C) [postcss]( https://www.npmjs.com/package/postcss) @Styling #minify {cm:2024-05-13}
-(C) [cssnano](https://www.npmjs.com/package/cssnano) @Styling #minify
+(C) [cssnano](https://www.npmjs.com/package/cssnano) @Styling #minify {cm:2024-06-16}
 (D) [Jest](https://www.npmjs.com/package/jest) @Testing #config 
 
 
