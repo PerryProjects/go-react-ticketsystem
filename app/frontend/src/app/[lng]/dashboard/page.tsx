@@ -11,8 +11,7 @@ export default function Page() {
             <Button
                 onClick={() => setCount(count + 1)}
                 label="Click me"
-            >
-            </Button>
+            />
         </div>
     );
 }

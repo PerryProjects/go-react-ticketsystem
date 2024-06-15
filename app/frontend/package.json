@@ -28,7 +28,8 @@
     "react": "^18.3.1",
     "react-cookie": "^7.1.4",
     "react-dom": "^18.3.1",
-    "react-i18next": "^14.1.2"
+    "react-i18next": "^14.1.2",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.21.1",

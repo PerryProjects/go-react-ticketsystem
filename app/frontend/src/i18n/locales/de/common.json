@@ -1,3 +1,10 @@
 {
-    "hello": "Welt"
+    "hello": "Welt",
+    "users": "Benutzer",
+    "overview": "Übersicht",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "username": "Benutzername",
+    "email": "E-Mail",
+    "role": "Rolle"
 }

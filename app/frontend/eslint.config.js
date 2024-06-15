@@ -1,19 +1,25 @@
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 import antfu from '@antfu/eslint-config';
 
 import {FlatCompat} from '@eslint/eslintrc';
 
 const compat = new FlatCompat({recommendedConfig: []});
 
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+
 export default antfu(
     {
-        stylistic: {
+        stylistic: { 
             indent: 4,
             quotes: 'single',
         },
-
+ 
         react: true,
         jsx: true,
-
+ 
         settings: {
             'react': {
                 version: 'detect',
@@ -26,14 +32,16 @@ export default antfu(
         // Disable jsonc and yaml support
         jsonc: false, 
         yaml: false,
- 
+  
         typescript: {
-            tsconfigPath: './tsconfig.json',
+            tsconfigPath: ['tsconfig.json'],
         },
 
         languageOptions: {
             parserOptions: {
-                project: './tsconfig.json',
+                project: ['./tsconfig.json'],
+                tsconfigRootDir: __dirname,
+                sourceType: 'module',
             },
         },
 
@@ -41,7 +49,7 @@ export default antfu(
             // ts
             'ts/prefer-ts-expect-error': 'off',
             'ts/consistent-type-imports': 'off',
-            'ts/no-unsafe-call': 'off',
+            'ts/no-unsafe-call': 'off', 
             'ts/no-unsafe-return': 'off',
             'ts/no-unsafe-member-access': 'off',
             'ts/no-unsafe-assignment': 'off',
@@ -49,7 +57,7 @@ export default antfu(
             'ts/no-unused-vars': ['error'],
             'ts/explicit-module-boundary-types': 'off',
             'ts/no-unsafe-argument': 'off',
-            'ts/no-unnecessary-type-assertion': 'off',
+            'ts/no-unnecessary-type-assertion': 'off', 
             'ts/prefer-destructuring': ['error'],
             'ts/no-misused-promises': [
                 'error',
@@ -145,6 +153,13 @@ export default antfu(
                 4,
             ],
             'style/linebreak-style': [0, 'windows'],
+            'style/jsx-self-closing-comp': [
+                'error',
+                {
+                    html: true,
+                    component: true,
+                },
+            ],
         },
         ignores: [
             '.next',
@@ -166,7 +181,7 @@ export default antfu(
             '.husky', 
             '.env*',
             'README.md',
-            'yarn.lock',
+            'yarn.lock', 
         ],
     },
     ...compat.config({

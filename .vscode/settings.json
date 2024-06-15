@@ -109,7 +109,13 @@
   "eslint.format.enable": true,
   "[typescript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  }, 
+  },
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.stickyScroll.enabled": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
 }

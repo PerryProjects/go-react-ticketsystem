@@ -30,6 +30,7 @@
     "target": "ES2017"
   },
   "include": [
+    ".storybook/**/*.ts",
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",

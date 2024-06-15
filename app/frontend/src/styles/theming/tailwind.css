@@ -1,32 +1,39 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer tailwind-base, primereact, tailwind-utilities;
 
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+ 
 @layer base {
   h1 {
     @apply text-4xl;
   }
-
+  
   h2 {
     @apply text-3xl;
   }
-
+  
   h3 {
     @apply text-2xl;
   }
-
+  
   h4 {
     @apply text-xl;
   }
-
+  
   h5 {
     @apply text-lg;
   }
-
+  
   h6 {
     @apply text-base;
   }
-
+  
   a {
     @apply text-blue-600 underline;
   }

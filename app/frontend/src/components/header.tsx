@@ -57,8 +57,7 @@ export default function Header({ lng }: { lng: Locales }) {
                 }}
                 start={start}
                 end={end}
-            >
-            </Menubar>
+            />
         </header>
     );
 }

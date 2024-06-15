@@ -1,14 +1,32 @@
-'use server';
+'use client';
 
 import { Menu } from 'primereact/menu';
 import { MenuItem } from 'primereact/menuitem';
+import {
+    usePathname, 
+    useRouter, 
+} from 'next/navigation';
+import { useTranslation } from '@/i18n/client';
 import { Locales } from '@/i18n/settings';
 
-export default async function Sidemenu({ lng }: { lng: Locales }) {
+export default function Sidemenu({
+    lng,
+}: {
+    lng: Locales
+}) {
+    const { t } = useTranslation(lng, 'common');
+    const router = useRouter();
+    const currentPath = usePathname();
+
     const items: MenuItem[] = [
         {
             label: 'Dashboard',
             icon: 'pi pi-fw pi-home',
+            command: () => {
+                if (currentPath !== `/${lng}`) {
+                    router.push(`/${lng}`);
+                }
+            },
         },
         {
             separator: true,
@@ -17,8 +35,13 @@ export default async function Sidemenu({ lng }: { lng: Locales }) {
             label: 'Tickets',
             items: [
                 {
-                    label: 'Overview',
+                    label: t('overview'),
                     icon: 'pi pi-chart-line',
+                    command: () => {
+                        if (currentPath !== `/${lng}/tickets/overview`) {
+                            router.push(`/${lng}/tickets/overview`);
+                        }
+                    },
                 },
             ],
         },
@@ -29,8 +52,13 @@ export default async function Sidemenu({ lng }: { lng: Locales }) {
             label: 'Administration',
             items: [
                 {
-                    label: 'Users',
+                    label: t('users'),
                     icon: 'pi pi-user',
+                    command: () => {
+                        if (currentPath !== `/${lng}/admin/users`) {
+                            router.push(`/${lng}/admin/users`);
+                        }
+                    },
                 },
             ],
         },
