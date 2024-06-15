@@ -71,7 +71,7 @@
     "tailwindcss": "^3.4.4",
     "typescript": "^5.4.5"
   },
-  "packageManager": "yarn@4.2.2",
+  "packageManager": "yarn@4.3.0",
   "browserslist": [
     ">0.3%",
     "not dead",
