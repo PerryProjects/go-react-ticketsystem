@@ -32,12 +32,12 @@ function languageUrlParam(url: NextURL): Locales | false {
 export function middleware(req: NextRequest) {
     let lng;
     const languageParam = languageUrlParam(req.nextUrl);
-    if (languageParam) lng = languageParam;
-    if (!lng && req.cookies.has(LANGUAGE_COOKIE)) lng = acceptLanguage.get(req.cookies.get(LANGUAGE_COOKIE)!.value);
-    if (!lng) lng = acceptLanguage.get(req.headers.get('Accept-Language'));
-    if (!lng) lng = FALLBACK_LANGUAGE;
+    if (languageParam === false) lng = languageParam;
+    if (!(lng ?? false) && req.cookies.has(LANGUAGE_COOKIE)) lng = acceptLanguage.get(req.cookies.get(LANGUAGE_COOKIE)!.value);
+    if (lng == null) lng = acceptLanguage.get(req.headers.get('Accept-Language'));
+    if (lng == null) lng = FALLBACK_LANGUAGE;
     
-    // Redirect if lng in path is not supported
+    // Redirect if lng in path is not supported 
     if (
         !supportedLocales.some((loc) => req.nextUrl.pathname.startsWith(`/${loc}`))
         && !req.nextUrl.pathname.startsWith('/_next')

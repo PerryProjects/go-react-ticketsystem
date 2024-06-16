@@ -48,7 +48,7 @@ export default async function AdminUserTable() {
             username: 'hansmueller',
             email: 'da@de.de',
             role: 'User',
-        }
+        },
     ];
 
     return (

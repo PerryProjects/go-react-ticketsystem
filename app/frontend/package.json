@@ -7,7 +7,7 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint:js": "eslint . --cache",
+    "lint:js": "eslint . --cache --quiet",
     "lint": "yarn lint:js",
     "lintfix": "yarn lint:js --fix",
     "lint:translation": "npx @inlang/cli validate --project ./project.inlang && npx @inlang/cli lint --project ./project.inlang",

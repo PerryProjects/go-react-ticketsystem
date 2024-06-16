@@ -18,7 +18,7 @@
   ],
   "eslint.nodePath": "/home/perry/.nvm/versions/node/v20.12.2/bin/node",
   // Silent the stylistic rules in you IDE, but still auto fix them
-  "eslint.rules.customizations": [
+  /* "eslint.rules.customizations": [
     {
       "rule": "style/*",
       "severity": "off"
@@ -59,7 +59,7 @@
       "rule": "*semi",
       "severity": "off"
     }
-  ],
+  ], */
   // Enable eslint for all supported languages
   "eslint.validate": [
     "javascript",
@@ -120,7 +120,7 @@
   },
   "files.associations": {
     "**/.husky/*": "shellscript",
-    ".env*": "dotenv"
+    ".env*": "properdotenvties"
   },
   "asciidoc.antora.enableAntoraSupport": true,
   "[dockercompose]": {

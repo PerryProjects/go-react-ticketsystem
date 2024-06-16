@@ -1,8 +1,4 @@
-import { createTranslation } from '@/i18n/server';
-
-export default async function Page({ params: { lng } }: { params: { lng: string } }) {
-    const { t } = await createTranslation('common');
-
+export default async function Page() {
     return (
         <div>
             <h2>Übersicht</h2>

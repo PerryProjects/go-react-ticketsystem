@@ -6,14 +6,14 @@ import {FlatCompat} from '@eslint/eslintrc';
 
 const compat = new FlatCompat({recommendedConfig: []});
 
-const __filename = fileURLToPath(import.meta.url);
+const filename = fileURLToPath(import.meta.url);
 
-const __dirname = path.dirname(__filename);
+const dirname = path.dirname(filename);
 
 export default antfu(
     {
         stylistic: { 
-            indent: 4,
+            indent: 4, 
             quotes: 'single',
         },
  
@@ -40,7 +40,7 @@ export default antfu(
         languageOptions: {
             parserOptions: {
                 project: ['./tsconfig.json'],
-                tsconfigRootDir: __dirname,
+                tsconfigRootDir: dirname,
                 sourceType: 'module',
             },
         },
