@@ -10064,6 +10064,7 @@ __metadata:
     storybook: "npm:^8.1.9"
     tailwind-merge: "npm:^2.3.0"
     tailwindcss: "npm:^3.4.4"
+    tsc-files: "npm:^1.1.4"
     typescript: "npm:^5.4.5"
   languageName: unknown
   linkType: soft
@@ -16710,6 +16711,17 @@ __metadata:
     typescript:
       optional: true
   checksum: 10c0/ff32b4f810f9d99f676d70fe2c0e327cb6c812214bd4fc7135870b039f9e85a85b2c20f8fe030d9bd36e9598a12faa391f10aecb95df624b92f1af6bd47dc397
+  languageName: node
+  linkType: hard
+
+"tsc-files@npm:^1.1.4":
+  version: 1.1.4
+  resolution: "tsc-files@npm:1.1.4"
+  peerDependencies:
+    typescript: ">=3"
+  bin:
+    tsc-files: cli.js
+  checksum: 10c0/f7bc34c736e58dbd50c8f5fcd075704ad7f48efa670aaf388b7bee3386b8a2e6bef17cab5e6f8ff95bff7c2e1fa3baecb498576333b649c4258a9779dda3e708
   languageName: node
   linkType: hard
 
