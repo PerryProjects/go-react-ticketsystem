@@ -8,10 +8,10 @@
     Config {cm:2024-04-14}
 (B) [Next-Auth](https://next-auth.js.org/getting-started/example) @Auth {c}
     Config
-(B) [Husky](https://www.npmjs.com/package/husky) {c} @Git #config
-    Config
-(B) [Lint-staged](https://www.npmjs.com/package/lint-staged) {c} @Git #config
-    Config
+(B) [Husky](https://www.npmjs.com/package/husky) @Git #config {c}
+    Pre-commit hooks {cm:2024-06-16}
+    Post-merge hooks
+(B) [Lint-staged](https://www.npmjs.com/package/lint-staged) @Git #config {cm:2024-06-16}
 (B) [React Testing Library](https://www.npmjs.com/package/@testing-library/react) {c} @Testing
     Config
 (B) [Styled Components](https://www.npmjs.com/package/styled-components) {c} @Styling
