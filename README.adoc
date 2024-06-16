@@ -10,6 +10,197 @@ This is my first Project with React and Go. It is a simple Ticketsystem.
 
 This ticketsystem is a simple system to manage tickets. It is written in React and Go. The Database is a PostgreSQL Database.
 
+== Setup with Docker
+
+=== Prerequisites
+
+* Docker and Docker Compose installed.
+* Traefik Proxy as a Docker container.
+
+=== Steps
+
+==== 1. Install Docker and Docker Compose
+
+Ensure Docker and Docker Compose are installed on your system.
+Follow the installation guides:
+
+- Docker: https://docs.docker.com/get-docker/
+
+- Docker Compose: https://docs.docker.com/compose/install/
+
+==== 2. Install Traefik Proxy
+
+Start Traefik Proxy as a Docker container with the following command:
+
+[source,bash]
+----
+docker run -d -p 80:80 -p 8080:8080 --name traefik \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  traefik:v3.0 \
+  --api.insecure=true \
+  --providers.docker=true \
+  --entrypoints.web.address=:80
+----
+
+==== 3. Set Up Environment Variables
+
+Copy the example environment file and edit `.env` in your project root:
+
+[source,bash]
+----
+cp .env.example .env
+nano .env  # or use your preferred text editor to edit .env
+----
+
+
+==== 4. Project Structure
+
+Ensure your project directory structure is as follows:
+
+[source]
+----
+project_root/
+├─ app/
+│  ├─── backend/
+│  │   ├─── Dockerfile
+│  │   └─── (your Go backend files)
+│  └─── frontend/
+│      ├─── Dockerfile
+│      └─── (your Next.js frontend files)
+├─ .env.example
+└─ docker-compose.yml
+----
+
+==== 5. Start the Project
+
+Navigate to the root directory of your project and run the following command to start the services:
+
+[source,bash]
+----
+docker-compose up -d
+----
+
+This command will build and start all the containers defined in your `docker-compose.yml` file in detached mode.
+
+==== 6. Accessing the Services
+
+- **Frontend**: Access the frontend application via the domain specified in `FRONTEND_DOMAIN` (e.g., http://frontend.yourdomain.com).
+- **Backend**: Access the backend application via the domain specified in `BACKEND_DOMAIN` (e.g., http://backend.yourdomain.com).
+- **Traefik Dashboard**: Access the Traefik dashboard (if enabled) at http://localhost:8080.
+
+This setup ensures your project is configured with Docker, Docker Compose, Traefik Proxy, and environment variables, allowing for seamless development and deployment of your applications.
+
+== Setup without Docker
+
+=== Prerequisites
+
+* Node.js installed.
+* Go installed.
+* PostgreSQL installed.
+
+=== Steps
+
+==== 1. Install Node.js
+
+Ensure Node.js is installed on your system.
+Follow the installation guide: https://nodejs.org/en/download/
+
+==== 2. Install Go
+
+Ensure Go is installed on your system.
+Follow the installation guide: https://golang.org/doc/install
+
+==== 3. Install PostgreSQL
+
+Ensure PostgreSQL is installed on your system.
+Follow the installation guide: https://www.postgresql.org/download/
+
+==== 4. Project Structure
+
+Ensure your project directory structure is as follows:
+
+[source]
+----
+project_root/
+├─ app/
+│  ├─── backend/    
+│  │   └─── (your Go backend files)
+│  └─── frontend/
+│      └─── (your React frontend files)
+├─ .env.example
+└─ README.adoc
+----
+
+==== 5. Start the Project
+
+Navigate to the root directory of your project and run the following commands to start the services:
+
+- **Frontend**: Navigate to the `frontend` directory and run the following commands:
+
+- Development Mode:
+[source,bash]
+----
+cd app/frontend
+yarn install
+yarn dev
+----
+
+- **Backend**: Navigate to the `backend` directory and run the following commands:
+
+[source,bash]
+----
+cd app/backend
+go run main.go
+----
+
+This command will start the backend server.
+
+==== 6. Accessing the Services
+
+- **Frontend**: Access the frontend application via the domain specified in `FRONTEND_DOMAIN` (e.g., http://localhost:3000).
+
+- **Backend**: Access the backend application via the domain specified in `BACKEND_DOMAIN` (e.g., http://localhost:8080).
+
+This setup ensures your project is configured with Node.js, Go, PostgreSQL, and environment variables, allowing for seamless development and deployment of your applications.
+
+==== 7. Database Setup
+
+To set up the database, run the following commands:
+
+- Create the database:
+[source,bash]
+----
+createdb ticketsystem
+----
+
+- Run the database migrations:
+[source,bash]
+----
+cd app/backend
+go run main.go migrate
+----
+
+This will create the necessary tables in the database.
+
+==== 8. Accessing the Database
+
+You can access the database using the following command:
+
+[source,bash]
+----
+psql ticketsystem
+----
+
+This will open the PostgreSQL command-line interface for the `ticketsystem` database.
+
+==== 9. NGINX Configuration / Apache Configuration
+
+If you are using NGINX or Apache, you can configure the web server to serve the frontend and backend applications.
+
+For NGINX, you can create a configuration file in `/etc/nginx/sites-available/` and symlink it to `/etc/nginx/sites-enabled/`.
+
+For Apache, you can create a configuration file in `/etc/apache2/sites-available/` and symlink it to `/etc/apache2/sites-enabled/`. 
+
 == Technologies
 
 === Frontend

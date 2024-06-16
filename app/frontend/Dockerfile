@@ -21,5 +21,7 @@ RUN yarn install
 # Copy the rest of the application code
 COPY . .
 
+RUN yarn next telemetry disable
+
 # Start the Next.js app
 CMD ["yarn", "dev"]

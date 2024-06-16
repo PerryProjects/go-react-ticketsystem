@@ -1,0 +1,40 @@
+# Ignore node_modules for frontend
+app/frontend/node_modules
+app/frontend/.next
+app/frontend/.yarn/cache
+app/frontend/*.tsbuildinfo
+app/frontend/next-env.d.ts
+app/frontend/
+app/frontend/# yarn
+app/frontend/.pnp.*
+app/frontend/.yarn/*
+app/frontend/!.yarn/patches
+app/frontend/!.yarn/plugins
+app/frontend/!.yarn/releases
+app/frontend/!.yarn/sdks
+app/frontend/!.yarn/versions
+
+# eslint
+app/frontend/.eslintcache
+app/frontend/*storybook.log
+
+# Ignore Go binaries and vendor directories for backend
+app/backend/main
+app/backend/vendor
+
+# Ignore Docker-related files and directories
+.dockerignore
+.docker
+.dockerignore
+.git
+.gitignore
+.vscode
+.idea
+
+# Ignore macOS specific files
+.DS_Store
+
+# Ignore other editor and OS files
+*.log
+*.bak
+*~

@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./app/frontend
+    env_file: .env
+    volumes:
+      - ./app/frontend:/app
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_frontend.rule=Host(`${FRONTEND_DOMAIN}`)"
+      - "traefik.http.services.${COMPOSE_PROJECT_NAME}_frontend.loadbalancer.server.port=${FRONTEND_PORT}"
+      - "traefik.docker.network=${DOCKER_NETWORK}"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_frontend.tls=false"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_frontend.entrypoints=${TRAEFIK_ENTRYPOINT}"
+    environment:
+      - NEXT_PUBLIC_BACKEND_URL=http://${BACKEND_DOMAIN}:${BACKEND_PORT}
+      - NEXT_TELEMETRY_DISABLED=${NEXT_TELEMETRY_DISABLED}
+    # depends_on:
+    #   - backend
+
+    # backend:
+    #   build:
+    #     context: ./app/backend
+    #   env_file: .env
+    #   labels:
+    #     - "traefik.enable=true"
+    #     - "traefik.http.routers.backend.rule=Host(`${BACKEND_DOMAIN}`)"
+    #     - "traefik.http.services.backend.loadbalancer.server.port=${BACKEND_PORT}"
+    #   environment:
+    #     - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+    #   depends_on:
+    #     - postgres
+
+  postgres:
+    image: postgres:13
+    env_file: .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
+  adminer:
+    image: adminer
+    depends_on:
+      - postgres
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_adminer.rule=Host(`${ADMINER_DOMAIN}`)"
+      - "traefik.http.services.${COMPOSE_PROJECT_NAME}_adminer.loadbalancer.server.port=8080"
+      - "traefik.docker.network=${DOCKER_NETWORK}"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_adminer.tls=false"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_adminer.entrypoints=${TRAEFIK_ENTRYPOINT}"
+
+volumes:
+  pgdata:
+
+
+networks:
+  default:
+    name: "${DOCKER_NETWORK}"
+    external: true
+    driver: bridge

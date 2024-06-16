@@ -118,6 +118,7 @@
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
+  "asciidoc.antora.enableAntoraSupport": true,
   "[dockercompose]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },

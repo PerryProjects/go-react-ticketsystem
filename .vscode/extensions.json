@@ -9,6 +9,7 @@
     "edgarjs.next-js-commands",
     "nextnav.nextnav",
     "usernamehw.todo-md",
-    "inlang.vs-code-extension"
+    "inlang.vs-code-extension",
+    "asciidoctor.asciidoctor-vscode"
   ]
 }
