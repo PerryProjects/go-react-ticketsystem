@@ -14,7 +14,9 @@
     "eslint-viewer": "npx @eslint/config-inspector",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=$(grep CHROMATIC_KEY .env | cut -d '=' -f2)"
+    "chromatic": "npx chromatic --project-token=$(grep CHROMATIC_KEY .env | cut -d '=' -f2)",
+    "prepare-husky": "cd ../.. && husky app/.husky",
+    "postinstall": "yarn prepare-husky"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -64,7 +66,9 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "eslint-plugin-storybook": "^0.8.0",
+    "husky": "^9.0.11",
     "i18next-browser-languagedetector": "^8.0.0",
+    "lint-staged": "^15.2.7",
     "postcss": "^8.4.38",
     "postcss-import": "^16.1.0",
     "postcss-preset-env": "^9.5.14",
@@ -79,6 +83,11 @@
     "not dead",
     "not op_mini all"
   ],
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "tsc --noEmit"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"

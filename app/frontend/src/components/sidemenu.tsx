@@ -3,8 +3,8 @@
 import { Menu } from 'primereact/menu';
 import { MenuItem } from 'primereact/menuitem';
 import {
-    usePathname, 
-    useRouter, 
+    usePathname,
+    useRouter,
 } from 'next/navigation';
 import { useTranslation } from '@/i18n/client';
 import { Locales } from '@/i18n/settings';
@@ -65,7 +65,9 @@ export default function Sidemenu({
     ];
 
     return (
-        <div className="flex justify-content-center h-full">
+        <div
+            className="flex justify-content-center h-full"
+        >
             <Menu
                 pt={{
                     root: {

@@ -6,7 +6,7 @@ export default async function Users() {
 
     return (
         <div>
-            <h2 className="m-2">{t('users')}</h2>
+            <h2 className='mb-3'>{t('users')}</h2>
             <AdminUserTable />
         </div>
     );
