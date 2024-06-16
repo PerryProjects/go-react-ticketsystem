@@ -1,3 +1,5 @@
 cd app/frontend || exit 
 
+nvm use 20
+
 yarn concurrently "yarn lint-staged" "yarn lint:translation" "yarn lintfix" --names "lint-staged,lint-translation,lintfix" --prefix "Frontend: {name}" --group
