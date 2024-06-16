@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    env_file: .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=Host(`${FRONTEND_DOMAIN}`)"
+      - "traefik.http.services.frontend.loadbalancer.server.port=${FRONTEND_PORT}"
+      - "traefik.docker.network=code-network"
+      - "traefik.http.routers.domainuebsicht.tls=false"
+      - "traefik.http.routers.domainuebsicht.entrypoints=${TRAEFIK_ENTRYPOINT}"
+    environment:
+      - NEXT_PUBLIC_BACKEND_URL=http://${BACKEND_DOMAIN}:${BACKEND_PORT}
+    # depends_on:
+    #   - backend
+    networks:
+      - code-network
+
+  # backend:
+  #   build:
+  #     context: ./backend
+  #   env_file: .env
+  #   labels:
+  #     - "traefik.enable=true"
+  #     - "traefik.http.routers.backend.rule=Host(`${BACKEND_DOMAIN}`)"
+  #     - "traefik.http.services.backend.loadbalancer.server.port=${BACKEND_PORT}"
+  #   environment:
+  #     - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+  #   depends_on:
+  #     - postgres
+  #   networks:
+  #     - code-network
+
+  postgres:
+    image: postgres:13
+    env_file: .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    networks:
+      - code-network
+
+volumes:
+  pgdata:
+
+
+networks:
+  code-network:
+    external: true
+    driver: bridge

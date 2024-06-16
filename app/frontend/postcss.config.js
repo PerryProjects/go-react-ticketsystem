@@ -11,8 +11,8 @@ export default {
         'tailwindcss': {},
         'postcss-preset-env': {
             stage: 2,
-            /* pluginOptions */
         },
         ...(process.env.NODE_ENV === 'production' ? cssnano : {}),
+        'autoprefixer': {},
     },
 };
