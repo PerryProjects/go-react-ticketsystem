@@ -7,8 +7,8 @@ export default async function Users({params: {lng}}: {params: {lng: Locales}}) {
 
     return (
         <div>
-            test
             <h2 className="mb-3">{t('users')}</h2>
+            <AdminUserTable lng={lng} />
             <AdminUserTable lng={lng} />
         </div>
     );
