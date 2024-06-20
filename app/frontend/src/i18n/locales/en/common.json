@@ -6,5 +6,6 @@
     "lastName": "Last Name",
     "username": "Username",
     "email": "Email",
-    "role": "Role"
+    "role": "Role",
+    "add-user": "Add User"
 }

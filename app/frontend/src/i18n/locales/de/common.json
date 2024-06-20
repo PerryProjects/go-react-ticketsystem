@@ -6,5 +6,6 @@
     "lastName": "Nachname",
     "username": "Benutzername",
     "email": "E-Mail",
-    "role": "Rolle"
+    "role": "Rolle",
+    "add-user": "Benutzer hinzufügen"
 }

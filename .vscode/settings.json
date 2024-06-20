@@ -1,23 +1,23 @@
 {
-    // Enable the ESlint flat config support
-    "eslint.useFlatConfig": true,
-    // Disable the default formatter, use eslint instead
-    "editor.formatOnSave": true,
-    // Auto fix
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "explicit",
-        "source.organizeImports": "never"
+  // Enable the ESlint flat config support
+  "eslint.useFlatConfig": true,
+  // Disable the default formatter, use eslint instead
+  "editor.formatOnSave": true,
+  // Auto fix
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "eslint.workingDirectories": [
+    {
+      "directory": "./app/frontend/"
     },
-    "eslint.workingDirectories": [
-        {
-            "directory": "./app/frontend/"
-        },
-        {
-            "pattern": "./app/frontend/*"
-        }
-    ],
-    // Silent the stylistic rules in you IDE, but still auto fix them
-    /* "eslint.rules.customizations": [
+    {
+      "pattern": "./app/frontend/*"
+    }
+  ],
+  // Silent the stylistic rules in you IDE, but still auto fix them
+  /* "eslint.rules.customizations": [
           {
             "rule": "style/*",
             "severity": "off"
@@ -59,94 +59,89 @@
             "severity": "off"
           }
         ], */
-    // Enable eslint for all supported languages
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "vue",
-        "html",
-        "markdown",
-        "json",
-        "jsonc",
-        "yaml",
-        "toml",
-        "astro",
-        "postcss"
-    ],
-    "eslint.probe": [
-        "astro",
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "html",
-        "mdx",
-        "vue",
-        "markdown"
-    ],
-    "cSpell.words": [
-        "inlang",
-        "inputtext",
-        "primereact",
-        "webp"
-    ],
-    "editor.inlineSuggest.enabled": true,
-    "terminal.integrated.env.windows": {},
-    "remote.autoForwardPorts": false,
-    "files.autoSave": "onFocusChange",
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "[postcss]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "eslint.format.enable": true,
-    "[typescript]": {
-        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-    },
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "editor.stickyScroll.enabled": false,
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "files.associations": {
-        "**/.husky/*": "shellscript",
-        ".env*": "properdotenvties"
-    },
-    "terminal.integrated.env.linux": {
-        "PATH": "~/.nvm/versions/node/v20.12.2/bin:$PATH"
-    },
-    "asciidoc.antora.enableAntoraSupport": true,
-    "[dockercompose]": {
-        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-    },
-    "git.autofetch": true,
-    "github.copilot.enable": {
-        "markdown": "true"
-    },
-    "todomd.webview.showRecurringUpcoming": true,
-    "todomd.defaultFile": "/var/www/ticketsystem/todo.md",
-    "sherlock.userId": "6dd6213f-9b0a-4c6f-8b6f-13dc6d68ab45",
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.editorAssociations": {
-        "*.ttf": "ttf.preview",
-        "*.woff": "ttf.preview",
-        "*.woff2": "ttf.preview"
-    },
-    "diffEditor.ignoreTrimWhitespace": false,
-    "cSpell.userWords": [
-        "cssnano"
-    ],
-    "github.copilot.editor.enableAutoCompletions": true,
-    "git.enableSmartCommit": true,
-    "editor.accessibilitySupport": "off",
-    "npm.exclude": "",
+  // Enable eslint for all supported languages
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml",
+    "toml",
+    "astro",
+    "postcss"
+  ],
+  "eslint.probe": [
+    "astro",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "mdx",
+    "vue",
+    "markdown"
+  ],
+  "cSpell.words": [
+    "inlang",
+    "inputtext",
+    "primereact",
+    "webp"
+  ],
+  "editor.inlineSuggest.enabled": true,
+  "remote.autoForwardPorts": false,
+  "files.autoSave": "onFocusChange",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[postcss]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "eslint.format.enable": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.stickyScroll.enabled": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "files.associations": {
+    "**/.husky/*": "shellscript",
+    ".env*": "properdotenvties"
+  },
+  "asciidoc.antora.enableAntoraSupport": true,
+  "[dockercompose]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "git.autofetch": true,
+  "github.copilot.enable": {
+    "markdown": "true"
+  },
+  "todomd.webview.showRecurringUpcoming": true,
+  "todomd.defaultFile": "/var/www/ticketsystem/todo.md",
+  "sherlock.userId": "6dd6213f-9b0a-4c6f-8b6f-13dc6d68ab45",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.editorAssociations": {
+    "*.ttf": "ttf.preview",
+    "*.woff": "ttf.preview",
+    "*.woff2": "ttf.preview"
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "cSpell.userWords": [
+    "cssnano"
+  ],
+  "github.copilot.editor.enableAutoCompletions": true,
+  "git.enableSmartCommit": true,
+  "editor.accessibilitySupport": "off",
 }

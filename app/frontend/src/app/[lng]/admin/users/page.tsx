@@ -1,4 +1,4 @@
-import AdminUserTable from '@/components/admin/users/table';
+import AdminUserTable from '@/components/admin/users/Table';
 import { createTranslation } from '@/i18n/server';
 
 export default async function Users() {

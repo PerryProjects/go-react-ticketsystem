@@ -32,10 +32,10 @@ function languageUrlParam(url: NextURL): Locales | false {
 export function middleware(req: NextRequest) {
     let lng;
     const languageParam = languageUrlParam(req.nextUrl);
-    if (languageParam === false) lng = languageParam;
-    if (!(lng ?? false) && req.cookies.has(LANGUAGE_COOKIE)) lng = acceptLanguage.get(req.cookies.get(LANGUAGE_COOKIE)!.value);
-    if (lng == null) lng = acceptLanguage.get(req.headers.get('Accept-Language'));
-    if (lng == null) lng = FALLBACK_LANGUAGE;
+    if (languageParam !== false) lng = languageParam;
+    if ((lng === undefined) && req.cookies.has(LANGUAGE_COOKIE)) lng = acceptLanguage.get(req.cookies.get(LANGUAGE_COOKIE)!.value);
+    if (lng === undefined && req.headers.has('Accept-Language')) lng = acceptLanguage.get(req.headers.get('Accept-Language'));
+    if (lng === undefined) lng = FALLBACK_LANGUAGE;
     
     // Redirect if lng in path is not supported 
     if (
@@ -55,7 +55,7 @@ export function middleware(req: NextRequest) {
     
     const response = NextResponse.next();
 
-    response.cookies.set(LANGUAGE_COOKIE, lng);
+    response.cookies.set(LANGUAGE_COOKIE, (<string>lng));
 
     return response;
 }

@@ -13,8 +13,8 @@ import {
     Locales,
     supportedLocales,
 } from '@/i18n/settings';
-import Header from '@/components/header';
-import Sidemenu from '@/components/sidemenu';
+import Header from '@/components/Header';
+import Sidemenu from '@/components/Sidemenu';
 
 export async function generateStaticParams() {
     return supportedLocales.map((lng) => ({ lng }));
