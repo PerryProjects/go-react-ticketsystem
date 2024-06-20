@@ -119,6 +119,7 @@ export default antfu(
                     functions: 'ignore',
                 },
             ],
+            'style/block-spacing': ['off'],
             'style/object-curly-spacing': 'off',
             'style/no-trailing-spaces': 'off',
             'style/brace-style': ['error', '1tbs'],

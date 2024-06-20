@@ -2,12 +2,12 @@ import 'primeicons/primeicons.css';
 import '@/styles/globals.css';
 
 // Packages
-import { dir } from 'i18next';
+import {dir} from 'i18next';
 import {
     PrimeReactProvider,
 } from 'primereact/api';
-import { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
+import {Metadata} from 'next';
+import {Roboto} from 'next/font/google';
 import primeReactSettings from '../../ts/primeReactSettings';
 import {
     Locales,
@@ -17,7 +17,7 @@ import Header from '@/components/Header';
 import Sidemenu from '@/components/Sidemenu';
 
 export async function generateStaticParams() {
-    return supportedLocales.map((lng) => ({ lng }));
+    return supportedLocales.map((lng) => ({lng}));
 }
 
 export const metadata: Metadata = {
@@ -68,7 +68,6 @@ export default async function RootLayout({
                             <div className="md:relative z-10  w-[300px]">
                                 <Sidemenu lng={lng} />
                             </div>
-                            <div> </div>
                             <section className="flex-1 overflow-y-auto p-3">
                                 {children}
                             </section>

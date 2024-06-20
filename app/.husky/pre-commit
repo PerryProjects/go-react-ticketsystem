@@ -1,3 +1,3 @@
 cd app/frontend || exit 
 
-yarn concurrently "yarn lint-staged" "yarn lint:translation" "yarn lintfix" --names "lint-staged,lint-translation,lintfix" --prefix "Frontend: {name}" --group
+yarn concurrently "yarn lint:translation" "yarn lintfix" --names "lint-translation,lintfix" --prefix "Frontend: {name}" --group
