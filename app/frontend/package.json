@@ -86,7 +86,7 @@
   ],
   "lint-staged": {
     "*.{ts,tsx}": [
-      "tsc-files --noEmit ----project tsconfig.json"
+      "tsc-files --noEmit --project tsconfig.json"
     ]
   },
   "eslintConfig": {
