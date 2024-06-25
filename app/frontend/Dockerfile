@@ -1,7 +1,7 @@
 # frontend/Dockerfile
 
 # Use an official Node.js runtime as a parent image
-FROM node:20
+FROM node:20-alpine
 
 # Set the working directory in the container
 WORKDIR /app
@@ -10,7 +10,7 @@ WORKDIR /app
 RUN corepack enable
 
 # Enable Yarn 4
-RUN corepack prepare yarn@4.3.0 --activate
+RUN corepack prepare yarn@4.3.1 --activate
 
 # Copy package.json and yarn.lock
 COPY package.json yarn.lock ./
