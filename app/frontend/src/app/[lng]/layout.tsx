@@ -68,7 +68,7 @@ export default async function RootLayout({
                             <div className="md:relative z-10  w-[300px]">
                                 <Sidemenu lng={lng} />
                             </div>
-                            <section className="flex-1 overflow-y-auto p-3">
+                            <section className="flex-1 overflow-y-auto p-3 bg-white dark:bg-gray-900 text-gray-700 dark:text-white/80 border-l border-t border-gray-300 dark:border-white/80">
                                 {children}
                             </section>
                         </div>
