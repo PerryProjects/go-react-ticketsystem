@@ -21,7 +21,7 @@ const runsOnServerSide = typeof window === 'undefined';
 void i18next
     .use(initReactI18next)
     .use(LanguageDetector)
-    .use(resourcesToBackend((language: typeof supportedLocales[number], namespace: string) => import(`./locales/${language}/${namespace}.json`)))
+    .use(resourcesToBackend(async (language: typeof supportedLocales[number], namespace: string) => import(`./locales/${language}/${namespace}.json`)))
     .init({
         ...getOptions(),
         lng: undefined, // let detect the language on client side

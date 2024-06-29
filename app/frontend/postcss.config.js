@@ -2,7 +2,6 @@ const cssnano = {
     cssnano: {
         preset: 'advanced',
         discardComments: { removeAll: true },
-        normalizeUrl: false,
     },
 };
 

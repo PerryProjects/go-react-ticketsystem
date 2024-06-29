@@ -17,7 +17,12 @@ export function AdminUserDialog({
     isVisible,
     user,
     setDialogVisible,
-}: {lng: Locales, isVisible: boolean, user: User, setDialogVisible: Dispatch<SetStateAction<boolean>>}) {
+}: {
+    lng: Locales
+    isVisible: boolean
+    user: User
+    setDialogVisible: Dispatch<SetStateAction<boolean>>
+}) {
     const {t} = useTranslation(lng, 'common');
     const formRef = useRef<HTMLFormElement>(null);
 
