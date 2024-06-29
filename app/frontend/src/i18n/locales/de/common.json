@@ -7,5 +7,6 @@
     "username": "Benutzername",
     "email": "E-Mail",
     "role": "Rolle",
-    "add-user": "Benutzer hinzufügen"
+    "add_user": "Benutzer hinzufügen",
+    "edit_user": "Benutzer bearbeiten"
 }
