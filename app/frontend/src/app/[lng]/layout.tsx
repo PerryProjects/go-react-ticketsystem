@@ -8,7 +8,7 @@ import {
 } from 'primereact/api';
 import {Metadata} from 'next';
 import {Roboto} from 'next/font/google';
-import primeReactSettings from '../../ts/primeReactSettings';
+import primeReactSettings from '@/ts/primeReactSettings';
 import {
     Locales,
     supportedLocales,

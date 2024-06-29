@@ -6,7 +6,7 @@ import {Button} from 'primereact/button';
 import {
     useState,
 } from 'react';
-import {AdminUserDialog} from './Dialog';
+import {AdminUserDialog} from '@/components/admin/users/Dialog';
 import {Locales} from '@/i18n/settings';
 import {useTranslation} from '@/i18n/client';
 import {User} from '@/types/user';
@@ -65,23 +65,23 @@ export default function AdminUserTable({lng}: {lng: Locales}) {
         },
     ];
 
+    const openUserDialog = (user: User) => {
+        setSelectedUser(user);
+        setDialogVisible(true);
+    };
+
     const actionColumnHeader = () => {
         return (
             <div className="flex justify-end">
-                <Button label={t('add_user')} size="small" icon="pi pi-plus" className="p-button-raised p-button-rounded" />
+                <Button label={t('add_user')} size="small" icon="pi pi-plus" className="p-button-raised p-button-rounded" onClick={() => openUserDialog({} as User)} />
             </div>
         );
     };
 
     const actionColumnBody = (rowData: User) => {
-        function editUser(rowData: User) {
-            setSelectedUser(rowData);
-            setDialogVisible(true);
-        }
-
         return (
             <div className="flex justify-end gap-1">
-                <Button icon="pi pi-pencil" size="small" onClick={() => editUser(rowData)} />
+                <Button icon="pi pi-pencil" size="small" onClick={() => openUserDialog(rowData)} />
                 <Button icon="pi pi-trash" severity="danger" size="small" onClick={() => deleteUser(rowData)} />
             </div>
         );
@@ -103,7 +103,7 @@ export default function AdminUserTable({lng}: {lng: Locales}) {
                         },
                     }}
                     header={actionColumnHeader}
-                    body={(rowData) => actionColumnBody(rowData)}
+                    body={actionColumnBody}
                 />
             </DataTable>
 

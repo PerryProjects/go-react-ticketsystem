@@ -4,10 +4,10 @@ import {Button} from 'primereact/button';
 import {Dialog} from 'primereact/dialog';
 import {
     Dispatch,
-    ReactElement,
     SetStateAction,
-    useState,
+    useRef,
 } from 'react';
+import {AdminUserDialogForm} from './dialog/Form';
 import {Locales} from '@/i18n/settings';
 import {useTranslation} from '@/i18n/client';
 import {User} from '@/types/user';
@@ -19,30 +19,32 @@ export function AdminUserDialog({
     setDialogVisible,
 }: {lng: Locales, isVisible: boolean, user: User, setDialogVisible: Dispatch<SetStateAction<boolean>>}) {
     const {t} = useTranslation(lng, 'common');
+    const formRef = useRef<HTMLFormElement>(null);
 
-    const [dialogContent, setDialogContent] = useState<ReactElement | null>(null);
+    const isEdit = user.id !== undefined;
+
+    const handleSave = () => {
+        if (formRef.current) {
+            formRef.current.submit();
+        }
+    };
 
     const footerContent = (
         <div className="grid grid-cols-2 gap-2">
-            <Button label="No" icon="pi pi-times" size="small" onClick={() => setDialogVisible(false)} severity="danger" />
-            <Button label="Yes" icon="pi pi-check" size="small" onClick={() => setDialogVisible(false)} autoFocus />
+            <Button label={t('cancel')} icon="pi pi-times" size="small" onClick={() => setDialogVisible(false)} severity="danger" />
+            <Button label={t('save')} icon="pi pi-check" size="small" onClick={handleSave} autoFocus />
         </div>
     );
 
-    setDialogContent(
-        <div>
-            <h3>{t('edit_user')}</h3>
-            <p>{t('firstName')}: {user.firstName}</p>
-            <p>{t('lastName')}: {user.lastName}</p>
-            <p>{t('username')}: {user.username}</p>
-            <p>{t('email')}: {user.email}</p>
-            <p>{t('role')}: {user.role}</p>
-        </div>
-    );
+    const handleSubmit = (data: User) => {
+        // Add logic to handle form submission
+        console.log('Form submitted:', data);
+        setDialogVisible(false);
+    };
 
     return (
-        <Dialog header="User Details" draggable={false} visible={isVisible} style={{width: '50vw'}} onHide={() => setDialogVisible(false)} footer={footerContent}>
-            {dialogContent}
+        <Dialog header={isEdit ? t('edit_user_dialog_header', {fullName: `${user.firstName} ${user.lastName}`}) : t('add_user')} draggable={false} visible={isVisible} style={{width: '50vw'}} onHide={() => setDialogVisible(false)} footer={footerContent}>
+            <AdminUserDialogForm ref={formRef} user={user} onSubmit={handleSubmit} />
         </Dialog>
     );
-};
+}

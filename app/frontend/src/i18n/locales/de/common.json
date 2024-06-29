@@ -8,5 +8,11 @@
     "email": "E-Mail",
     "role": "Rolle",
     "add_user": "Benutzer hinzufügen",
-    "edit_user": "Benutzer bearbeiten"
+    "edit_user": "Benutzer bearbeiten",
+    "delete_user": "Benutzer löschen",
+    "delete_user_confirmation": "Möchten Sie diesen Benutzer wirklich löschen?",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "edit_user_dialog_header": "{{fullName}} bearbeiten",
+    "password": "Passwort"
 }
