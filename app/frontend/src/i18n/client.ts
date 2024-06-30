@@ -31,7 +31,7 @@ void i18next
         preload: runsOnServerSide ? supportedLocales : [],
     });
 
-export function useTranslation<NS extends string>(lng: typeof supportedLocales[number], ns: NS | NS[], options: UseTranslationOptions<undefined> | undefined = undefined) {
+export function useTranslation<NS extends string>(lng: typeof supportedLocales[number], ns: NS | NS[], options: UseTranslationOptions<undefined> | undefined = undefined): ReturnType<typeof useTranslationOrg> {
     const ret = useTranslationOrg(ns, options); 
     const { i18n } = ret;
     if (runsOnServerSide && lng && i18n.resolvedLanguage !== lng) {

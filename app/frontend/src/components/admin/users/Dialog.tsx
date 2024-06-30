@@ -23,7 +23,7 @@ export function AdminUserDialog({
     user: User
     setDialogVisible: Dispatch<SetStateAction<boolean>>
 }) {
-    const {t} = useTranslation(lng, 'common');
+    const {t} = useTranslation(lng, ['common', 'validation']);
     const formRef = useRef<HTMLFormElement>(null);
 
     const isEdit = user.id !== undefined;
@@ -34,6 +34,12 @@ export function AdminUserDialog({
         }
     };
 
+    const handleSubmit = (data: User) => {
+        // Add logic to handle form submission
+        console.log('Form submitted:', data);
+        setDialogVisible(false);
+    };
+
     const footerContent = (
         <div className="grid grid-cols-2 gap-2">
             <Button label={t('cancel')} icon="pi pi-times" size="small" onClick={() => setDialogVisible(false)} severity="danger" />
@@ -41,15 +47,9 @@ export function AdminUserDialog({
         </div>
     );
 
-    const handleSubmit = (data: User) => {
-        // Add logic to handle form submission
-        console.log('Form submitted:', data);
-        setDialogVisible(false);
-    };
-
     return (
         <Dialog header={isEdit ? t('edit_user_dialog_header', {fullName: `${user.firstName} ${user.lastName}`}) : t('add_user')} draggable={false} visible={isVisible} style={{width: '50vw'}} onHide={() => setDialogVisible(false)} footer={footerContent}>
-            <AdminUserDialogForm ref={formRef} user={user} onSubmit={handleSubmit} />
+            <AdminUserDialogForm ref={formRef} user={user} onSubmit={handleSubmit} t={t} />
         </Dialog>
     );
 }

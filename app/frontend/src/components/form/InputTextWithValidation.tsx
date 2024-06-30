@@ -1,29 +1,30 @@
 'use client';
 
 import {InputText} from 'primereact/inputtext';
+import {useId} from 'react';
 import {
     Controller,
+    FieldPath,
+    FieldValues,
+    UseControllerProps,
 } from 'react-hook-form';
+import {ErrorMessage} from '@hookform/error-message';
 
-interface InputTextWithValidationProps {
-    id: string
-    name: string
-    defaultValue: any
-    control: any
+interface InputTextWithValidationProps<TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>> extends UseControllerProps<TFieldValues, TName> {
     errors: any
-    rules: any
     label: string
 }
 
-export function FormInputTextWithValidation({
-    id,
+export function FormInputTextWithValidation<TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>>({
     name,
     defaultValue,
     control,
     errors,
     rules,
     label,
-}: InputTextWithValidationProps) {
+}: InputTextWithValidationProps<TFieldValues, TName>) {
+    const id = useId();
+
     return (
         <div className="flex flex-col">
             <label htmlFor={id}>{label}</label>
@@ -36,7 +37,11 @@ export function FormInputTextWithValidation({
                     <InputText id={id} {...field} />
                 )}
             />
-            {errors[name] !== undefined && <span className="p-error">{errors[name].message}</span>}
+            <ErrorMessage
+                errors={errors}
+                name={name}
+                render={({message}) => <span className="text-red-500 text-sm">{message}</span>}
+            />
         </div>
     );
 }

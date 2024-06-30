@@ -14,7 +14,8 @@
   "plugin.inlang.i18next": {
     "pathPattern": {
       "common": "./src/i18n/locales/{languageTag}/common.json",
-      "header": "./src/i18n/locales/{languageTag}/header.json"
+      "header": "./src/i18n/locales/{languageTag}/header.json",
+      "validation": "./src/i18n/locales/{languageTag}/validation.json"
     },
     "variableReferencePattern": [
       "{{",
