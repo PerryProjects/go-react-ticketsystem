@@ -87,6 +87,7 @@
     "markdown"
   ],
   "cSpell.words": [
+    "godotenv",
     "inlang",
     "inputtext",
     "primereact",
@@ -153,6 +154,9 @@
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
   "[go.mod]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "[go]": {
     "editor.defaultFormatter": "golang.go"
   },
 }
