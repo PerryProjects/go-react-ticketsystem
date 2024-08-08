@@ -91,7 +91,7 @@ export default function AdminUserTable({lng}: {lng: Locales}) {
         return (
             <span>{t(rowData.role)}</span>
         );
-    }
+    };
 
     return (
         <div>
