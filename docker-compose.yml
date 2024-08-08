@@ -2,7 +2,6 @@ services:
   frontend:
     build:
       context: ./app/frontend
-    env_file: .env
     volumes:
       - ./app/frontend:/app
     labels:
@@ -18,22 +17,28 @@ services:
     # depends_on:
     #   - backend
 
-    # backend:
-    #   build:
-    #     context: ./app/backend
-    #   env_file: .env
-    #   labels:
-    #     - "traefik.enable=true"
-    #     - "traefik.http.routers.backend.rule=Host(`${BACKEND_DOMAIN}`)"
-    #     - "traefik.http.services.backend.loadbalancer.server.port=${BACKEND_PORT}"
-    #   environment:
-    #     - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
-    #   depends_on:
-    #     - postgres
+  backend:
+    build:
+      context: ./app/backend
+    volumes:
+      - ./app/backend:/app
+      - perry-projects_ticketsystem-hub_mod_cache:/go/pkg/mod
+    ports:
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_backend.rule=Host(`${BACKEND_DOMAIN}`)"
+      - "traefik.http.services.${COMPOSE_PROJECT_NAME}_backend.loadbalancer.server.port=${BACKEND_PORT}"
+      - "traefik.docker.network=${DOCKER_NETWORK}"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_backend.tls=false"
+    environment:
+      - DATABASE_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      - PORT=${BACKEND_PORT}
+    depends_on:
+      - postgres
 
   postgres:
     image: postgres:latest
-    env_file: .env
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
@@ -55,6 +60,7 @@ services:
 
 volumes:
   pgdata:
+  perry-projects_ticketsystem-hub_mod_cache:
 
 
 networks:

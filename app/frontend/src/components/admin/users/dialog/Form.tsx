@@ -10,6 +10,7 @@ import {
 } from 'i18next';
 import {User} from '@/types/user';
 import {FormInputTextWithValidation} from '@/components/form/InputTextWithValidation';
+import {FormDropdownWithValidation} from '@/components/form/DropdownWithValidation';
 
 interface AdminUserDialogFormProps {
     user: User
@@ -35,6 +36,17 @@ export const AdminUserDialogForm = forwardRef<HTMLFormElement | null, AdminUserD
             submit: handleSubmit(onSubmit),
         } as any));
 
+        const roles = [
+            {
+                label: t('admin'),
+                value: 'admin',
+            },
+            {
+                label: t('user'),
+                value: 'user',
+            },
+        ];
+
         return (
             <form className="grid grid-cols-2 gap-4">
                 <FormInputTextWithValidation label={t('firstName')} name="firstName" defaultValue={user.firstName} control={control} errors={errors} rules={{required: t('validation:required', {field: t('firstName')})}} />
@@ -55,7 +67,7 @@ export const AdminUserDialogForm = forwardRef<HTMLFormElement | null, AdminUserD
                         },
                     }}
                 />
-                <FormInputTextWithValidation label={t('role')} name="role" defaultValue={user.role} control={control} errors={errors} rules={{required: t('validation:required', {field: t('role')})}} />
+                <FormDropdownWithValidation options={roles} label={t('role')} name="role" defaultValue={user.role} control={control} errors={errors} rules={{required: t('validation:required', {field: t('role')})}} />
             </form>
         );
     }

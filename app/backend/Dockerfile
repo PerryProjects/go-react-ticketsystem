@@ -1,22 +1,15 @@
 # backend/Dockerfile
 
 # Use the official Golang image
-FROM golang:1.18
+FROM golang:1.22
 
-# Set the working directory in the container
+RUN apt-get update \
+    && apt-get install -y ca-certificates curl gnupg \
+    && mkdir -p /etc/apt/keyrings
+
 WORKDIR /app
 
-# Copy go.mod and go.sum
-COPY go.mod go.sum ./
+RUN go install go.uber.org/mock/mockgen@latest && \
+    go install github.com/air-verse/air@latest
 
-# Download Go modules
-RUN go mod download
-
-# Copy the rest of the application code
-COPY . .
-
-# Build the Go app
-RUN go build -o main .
-
-# Start the Go app
-CMD ["./main"]
+CMD ["air", "-c", ".air.toml"]

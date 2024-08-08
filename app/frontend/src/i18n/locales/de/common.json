@@ -14,5 +14,7 @@
     "cancel": "Abbrechen",
     "save": "Speichern",
     "edit_user_dialog_header": "{{fullName}} bearbeiten",
-    "password": "Passwort"
+    "password": "Passwort",
+    "admin": "Admin",
+    "user": "Benutzer"
 }

@@ -149,4 +149,10 @@
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
   "typescript.inlayHints.propertyDeclarationTypes.enabled": false,
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[go.mod]": {
+    "editor.defaultFormatter": "golang.go"
+  },
 }

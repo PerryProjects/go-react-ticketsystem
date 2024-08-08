@@ -29,7 +29,7 @@ export default function AdminUserTable({lng}: {lng: Locales}) {
             lastName: 'Doe',
             username: 'johndoe',
             email: 'john.doe@example.com',
-            role: 'Admin',
+            role: 'admin',
         },
         {
             id: 2,
@@ -37,7 +37,7 @@ export default function AdminUserTable({lng}: {lng: Locales}) {
             lastName: 'Doe',
             username: 'janedoe',
             email: 'jane.doe@example.com',
-            role: 'User',
+            role: 'user',
         },
         {
             id: 3,
@@ -45,7 +45,7 @@ export default function AdminUserTable({lng}: {lng: Locales}) {
             lastName: 'Mustermann',
             username: 'maxmustermann',
             email: 'max@mustermann.de',
-            role: 'User',
+            role: 'user',
         },
         {
             id: 4,
@@ -53,7 +53,7 @@ export default function AdminUserTable({lng}: {lng: Locales}) {
             lastName: 'Mustermann',
             username: 'erikamustermann',
             email: 'mustermann@50rem.de',
-            role: 'User',
+            role: 'user',
         },
         {
             id: 5,
@@ -61,7 +61,7 @@ export default function AdminUserTable({lng}: {lng: Locales}) {
             lastName: 'Müller',
             username: 'hansmueller',
             email: 'da@de.de',
-            role: 'User',
+            role: 'user',
         },
     ];
 
@@ -87,6 +87,12 @@ export default function AdminUserTable({lng}: {lng: Locales}) {
         );
     };
 
+    const roleColumnBody = (rowData: User) => {
+        return (
+            <span>{t(rowData.role)}</span>
+        );
+    }
+
     return (
         <div>
             <DataTable value={usersData} dataKey="id" stripedRows>
@@ -95,7 +101,7 @@ export default function AdminUserTable({lng}: {lng: Locales}) {
                 <Column field="lastName" header={t('lastName')} />
                 <Column field="username" header={t('username')} />
                 <Column field="email" header={t('email')} />
-                <Column field="role" header={t('role')} />
+                <Column field="role" header={t('role')} body={roleColumnBody} />
                 <Column
                     pt={{
                         headerContent: {
