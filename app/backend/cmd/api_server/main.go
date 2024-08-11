@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	env.ImportEnv()
+	env.LoadEnv()
 
 	if env.IsDev() {
 		gin.SetMode(gin.DebugMode)
@@ -16,10 +16,8 @@ func main() {
 		gin.SetMode(gin.ReleaseMode)
 	}
 
-	// Create a new Gin engine without any middleware attached
 	r := gin.New()
 
-	// Attach Logger and Recovery middleware manually
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
 

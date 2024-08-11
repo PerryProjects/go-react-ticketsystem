@@ -7,28 +7,40 @@ import (
 	"github.com/joho/godotenv"
 )
 
-func ImportEnv() {
+func loadEnvFiles() {
+	originalEnv := make(map[string]string)
+	for _, env := range os.Environ() {
+		pair := strings.SplitN(env, "=", 2)
+		originalEnv[pair[0]] = pair[1]
+	}
+
 	godotenv.Load(".env")
 
 	godotenv.Overload(".env.local")
 
-	env := os.Getenv("APP_ENV")
-	if env == "" {
-		env = "prod"
+	appEnv := os.Getenv("APP_ENV")
+
+	if appEnv != "" {
+		godotenv.Overload(".env." + strings.ToLower(appEnv))
+
+		godotenv.Overload(".env." + strings.ToLower(appEnv) + ".local")
 	}
 
-	env = strings.ToLower(env)
+	for key, value := range originalEnv {
+		os.Setenv(key, value)
+	}
+}
 
-	godotenv.Overload(".env." + env)
-
-	godotenv.Overload(".env." + env + ".local")
-
+func LoadEnv() {
+	loadEnvFiles()
 }
 
 func IsDev() bool {
-	if os.Getenv("APP_ENV") == "" {
-		ImportEnv()
+	appEnv := os.Getenv("APP_ENV")
+	if appEnv == "" {
+		LoadEnv()
+		appEnv = os.Getenv("APP_ENV")
 	}
 
-	return strings.ToLower(os.Getenv("APP_ENV")) == "dev"
+	return strings.ToLower(appEnv) == "dev"
 }
