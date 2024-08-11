@@ -3,6 +3,7 @@
 :toc: left
 :toc-title: Table of Contents
 :toclevels: 4
+:nofooter:
 
 This is my first Project with React and Go. It is a simple Ticketsystem.
 
@@ -217,8 +218,31 @@ link:app/frontend/README.adoc[README]
 
 === Backend
 
-==== Go
+==== Go 
 
 Go is an open source programming language that makes it easy to build simple, reliable, and efficient software.
 
 More information about Go can be found here: https://golang.org/
+
+==== README
+
+link:app/backend/README.adoc[README]
+
+==== Environment Variables
+
+The following environment variables are used in this project:
+
+[%header, cols=3*]
+|===
+| Name | Description | Default
+| APP_ENV | The environment in which the application is running (e.g., DEV, PROD). | PROD
+|GIN_MODE | The mode in which the Go application is running (e.g., release, debug). | debug
+|=== 
+
+The environment variables follow the following hierarchy:
+
+. -> .env                contains default values for the environment variables needed by the app
+. -> .env.local          uncommitted file with local overrides
+. -> .env.$APP_ENV       committed environment-specific defaults
+. -> .env.$APP_ENV.local uncommitted environment-specific overrides
+
