@@ -1,3 +1,7 @@
-cd app/frontend || exit 
+cd app/frontend || exit
 
-yarn concurrently "yarn lint:translation" "yarn lint-staged" "yarn lintfix" --names "lint-translation,lint-staged,lintfix" --prefix "Frontend: {name}" --group
+frontendCommand="yarn concurrently \"yarn lint:translation\" \"yarn lint-staged\" \"yarn lintfix\" --names \"lint-translation,lint-staged,lintfix\" --prefix \"{name}\" --group"
+backendCommand="cd ../backend && /home/perry/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.23.0.linux-amd64/bin/go mod tidy"
+
+
+yarn concurrently "$frontendCommand" "$backendCommand" --names "FRONTEND, BACKEND" --prefix "{name}: " --group
