@@ -2,17 +2,13 @@ package main
 
 import (
 	"backend/config"
-	"backend/models"
+	"backend/db"
 	"backend/server"
-	"fmt"
 )
 
 func main() {
 	config.Init()
-	user := models.User{}
+	db.Init()
 
-	j, _ := user.MarshalJSON()
-	fmt.Println(string(j))
 	server.Init()
-
 }
