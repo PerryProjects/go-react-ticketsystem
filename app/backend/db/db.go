@@ -19,7 +19,7 @@ func Init() *gorm.DB {
 	db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	// defer db.Close()
 	if err != nil {
-		panic("DB Connection Error")
+		panic("DB Connection Error " + err.Error())
 	}
 	autoMigrate(db)
 

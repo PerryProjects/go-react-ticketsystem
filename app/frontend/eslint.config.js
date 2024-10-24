@@ -1,85 +1,66 @@
-import { fileURLToPath } from 'node:url';
-import path from 'node:path';
 import antfu from '@antfu/eslint-config';
 
 import {FlatCompat} from '@eslint/eslintrc';
 
-const compat = new FlatCompat({recommendedConfig: []});
-
-const filename = fileURLToPath(import.meta.url);
-
-const dirname = path.dirname(filename);
+const compat = new FlatCompat();
 
 export default antfu(
     {
-        stylistic: { 
-            indent: 4, 
+        stylistic: {
+            indent: 4,
             quotes: 'single',
         },
- 
-        react: true,
-        jsx: true,
- 
-        settings: {
-            'react': {
-                version: 'detect',
-            },
-            'import/resolver': {
-                typescript: {},
-            }, 
-        },
+
+        vue: true,
 
         // Disable jsonc and yaml support
-        jsonc: false, 
+        jsonc: false,
         yaml: false,
-  
+
         typescript: {
-            tsconfigPath: ['tsconfig.json'],
+            tsconfigPath: 'tsconfig.json',
         },
 
         languageOptions: {
             parserOptions: {
-                project: ['./tsconfig.json'],
-                tsconfigRootDir: dirname,
-                sourceType: 'module',
+                project: ['./tsconfig.json'], // Specify it only for TypeScript files
             },
         },
 
         rules: {
-            // ts
-            'ts/prefer-ts-expect-error': 'off',
-            'ts/consistent-type-imports': 'off',
-            'ts/no-unsafe-call': 'off', 
-            'ts/no-unsafe-return': 'off',
-            'ts/no-unsafe-member-access': 'off',
-            'ts/no-unsafe-assignment': 'off',
-            'ts/no-explicit-any': 'off',
-            'ts/no-unused-vars': ['error'],
-            'ts/explicit-module-boundary-types': 'off',
-            'ts/no-unsafe-argument': 'off',
-            'ts/no-unnecessary-type-assertion': 'off', 
-            'ts/prefer-destructuring': ['error'],
-            'ts/no-misused-promises': [
+            // vue
+            'vue/no-template-shadow': 'off',
+            'vue/block-order': ['error', {
+                order: ['template', 'script[setup]', 'style'],
+            }],
+            'vue/attributes-order': [
                 'error',
                 {
-                    checksVoidReturn: false,
-                },
-            ],
-
-            // react
-            'react/react-in-jsx-scope': 0,
-            'react/prefer-stateless-function': 0,
-            'react/jsx-one-expression-per-line': 0,
-            'react-naming-convention/filename-extension': [
-                1,
-                {
-                    extensions: [
-                        '.ts',
-                        '.tsx',
+                    order: [
+                        'DEFINITION',
+                        'LIST_RENDERING',
+                        'CONDITIONALS',
+                        'RENDER_MODIFIERS',
+                        'GLOBAL',
+                        ['UNIQUE', 'SLOT'],
+                        'TWO_WAY_BINDING',
+                        'OTHER_DIRECTIVES',
+                        'OTHER_ATTR',
+                        'EVENTS',
+                        'CONTENT',
                     ],
+                    alphabetical: false,
                 },
             ],
-            'react-refresh/only-export-components': 'off',
+            'vue/html-indent': ['off'],
+            'vue/html-closing-bracket-spacing': [0],
+            'vue/max-attributes-per-line': [
+                'error',
+                {
+                    singleline: {max: 1},
+                    multiline: {max: 1},
+                },
+            ],
 
             // antfu
             'antfu/if-newline': 'off',
@@ -87,26 +68,28 @@ export default antfu(
             // eslint
             'curly': ['error', 'multi-line'],
             'no-console': 'warn',
+            'arrow-body-style': ['error', 'as-needed'],
             'eslint linebreak-style': [0, 'error', 'windows'],
-            'no-underscore-dangle': [2, {allowAfterThis: true}],
-            'no-param-reassign': [2, {props: false}],
             'no-unused-vars': 'off',
             'prefer-template': 'off',
             'no-plusplus': 'off',
             'class-methods-use-this': 'off',
-            
-            // node
-            'n/global-require': 0,
-            'node/global-require': 0,
-            'node/prefer-global/process': 0,
-
-            // import
-            'import/extensions': 'off',
-            'import/no-unresolved': 'off',
-            'import/prefer-default-export': 'off',
-            'import/no-extraneous-dependencies': 'off',
+            'no-underscore-dangle': [2, {
+                allowAfterThis: true,
+                allow: ['_data'],
+            }],
+            'no-param-reassign': [2, {props: false}],
+            'no-else-return': 'error',
+            'no-useless-return': 'error',
 
             // style
+            'style/array-element-newline': [
+                'error',
+                {
+                    ArrayExpression: 'consistent',
+                    ArrayPattern: {minItems: 3},
+                },
+            ],
             'style/arrow-parens': ['error', 'always'],
             'style/semi': [2, 'always'],
             'style/comma-dangle': [
@@ -119,21 +102,6 @@ export default antfu(
                     functions: 'ignore',
                 },
             ],
-            'style/block-spacing': ['off'],
-            'style/object-curly-spacing': 'off',
-            'style/no-trailing-spaces': 'off',
-            'style/brace-style': ['error', '1tbs'],
-            'style/indent': ['error', 4, {SwitchCase: 1}],
-            'style/array-bracket-newline': ['error', 'consistent'],
-            'style/jsx-one-expression-per-line': 'off',      
-            'style/object-curly-newline': [
-                'error',
-                {
-                    multiline: true,
-                    minProperties: 2,
-                    consistent: true,
-                },
-            ],
             'style/max-len': [
                 2,
                 {
@@ -142,50 +110,106 @@ export default antfu(
                     ignoreUrls: true,
                 },
             ],
-            'style/array-element-newline': [
+            'style/object-curly-spacing': 'off',
+            'style/no-trailing-spaces': 'off',
+            'style/brace-style': ['error', '1tbs'],
+            'style/linebreak-style': ['off', 'windows'],
+            'style/indent': ['error', 4, {
+                SwitchCase: 1,
+                ObjectExpression: 1,
+            }],
+            'style/array-bracket-newline': ['error', 'consistent'],
+            'style/object-curly-newline': [
                 'error',
                 {
-                    ArrayExpression: 'consistent',
-                    ArrayPattern: {minItems: 3},
+                    multiline: true,
+                    minProperties: 2,
+                    consistent: true,
                 },
             ],
-            'style/jsx-indent': [
-                'error',
-                4,
-            ],
-            'style/linebreak-style': [0, 'windows'],
-            'style/jsx-self-closing-comp': [
-                'error',
-                {
-                    html: true,
-                    component: true,
-                },
-            ],
+
+            // node
+            'n/prefer-global/process': 'off',
+            'n/global-require': 0,
+
+            // import
+            'import/extensions': 'off',
+            'import/no-unresolved': 'off',
+            'import/prefer-default-export': 'off',
+            'import/no-extraneous-dependencies': 'off',
         },
-        ignores: [
-            '.next',
-            '.gitignore',
-            '.yarn',
-            'node_modules',
-            '.husky', 
-            '.env*',
-            'yarn.lock',
-            'README.md',
-        ],
+        gitignore: {
+            files: ['.gitignore'],
+        },
     },
     {
         ignores: [
-            '.next',
+            '.nuxt',
             '.gitignore',
             '.yarn',
-            'node_modules', 
-            '.husky', 
+            'node_modules',
+            '.husky',
             '.env*',
             'README.md',
-            'yarn.lock', 
+            'yarn.lock',
         ],
     },
+    {
+        files: ['**/*.ts', '**/*.vue'],
+        rules: {
+            'ts/ban-ts-comment': 'off',
+            'ts/consistent-type-imports': 'off',
+            'ts/no-unsafe-call': 'off',
+            'ts/no-unsafe-return': 'off',
+            'ts/no-unsafe-member-access': 'off',
+            'ts/no-unsafe-assignment': 'off',
+            'ts/no-explicit-any': 'off',
+            'ts/no-unused-vars': ['error'],
+            'ts/explicit-module-boundary-types': 'off',
+            'ts/no-unsafe-argument': 'off',
+            'ts/no-unnecessary-type-assertion': 'off',
+            'ts/prefer-destructuring': ['error'],
+            'ts/strict-boolean-expressions': 'off',
+            'ts/promise-function-async': ['error', {
+                checkFunctionDeclarations: false,
+            }],
+            'ts/no-misused-promises': [
+                'error',
+                {
+                    checksVoidReturn: false,
+                },
+            ],
+        },
+    },
+    // types rule overrides
+    {
+        files: ['ts/types/**/*.ts'],
+        rules: {
+            'style/semi': 'off',
+        },
+    },
+    {
+        files: ['eslint.config.js', 'server.cjs', 'tailwind.config.js'],
+        rules: {
+            'ts/prefer-destructuring': 'off',
+            'ts/no-misused-promises': 'off',
+            'ts/promise-function-async': 'off',
+        },
+    },
     ...compat.config({
-        extends: ['plugin:@next/next/core-web-vitals', 'plugin:@next/next/recommended'],
+        extends: ['plugin:tailwindcss/recommended'],
+        rules: {
+            'tailwindcss/no-custom-classname': ['error', {
+                whitelist: [
+                    'pi',
+                    'pi-.*',
+                    'toggle-icon',
+                    'statusColor-.*',
+                    'maintenance-tables',
+                ],
+            }],
+            'tailwindcss/classnames-order': 'error',
+            'tailwindcss/enforces-shorthand': 'error',
+        },
     }),
 );

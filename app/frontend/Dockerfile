@@ -11,12 +11,11 @@ RUN corepack enable \
     && corepack prepare yarn@latest --activate
 
 # Copy the rest of the application code
-COPY . .
+COPY ../frontend .
 
 # Install dependencies using Yarn
 RUN cd /app \
-    && yarn install \
-    && yarn next telemetry disable
+    && yarn install
 
 # Start the Next.js app
 CMD ["yarn", "dev"]
