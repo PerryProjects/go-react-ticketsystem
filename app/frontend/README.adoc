@@ -1,0 +1,111 @@
+= Ticketsystem Frontend
+:toc: left
+:toc-title:
+
+This is the frontend for the ticketsystem. It is built with Nuxt.js.
+
+== Modules
+
+Following modules are used in this project:
+
+|===
+|Module |Link
+
+|NuxtI18n
+|https://i18n.nuxtjs.org/docs
+
+|NuxtAuth
+|https://auth.sidebase.io/
+
+|NuxtGoogleFonts
+|https://google-fonts.nuxtjs.org/
+
+|primeicons
+|https://primevue.org/icons
+
+|PrimeVue
+|https://primevue.org/
+
+|Nuxt typed router
+|https://nuxt-typed-router.vercel.app/
+|===
+
+== Nuxt Minimal Starter
+
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+
+=== Setup
+
+Make sure to install dependencies:
+
+[source,bash]
+----
+## npm
+npm install
+
+## pnpm
+pnpm install
+
+## yarn
+yarn install
+
+## bun
+bun install
+----
+
+=== Development Server
+
+Start the development server on `http://localhost:3000`:
+
+[source,bash]
+----
+## npm
+npm run dev
+
+## pnpm
+pnpm dev
+
+## yarn
+yarn dev
+
+## bun
+bun run dev
+----
+
+=== Production
+
+Build the application for production:
+
+[source,bash]
+----
+## npm
+npm run build
+
+## pnpm
+pnpm build
+
+## yarn
+yarn build
+
+## bun
+bun run build
+----
+
+Locally preview production build:
+
+[source,bash]
+----
+## npm
+npm run preview
+
+## pnpm
+pnpm preview
+
+## yarn
+yarn preview
+
+## bun
+bun run preview
+----
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
