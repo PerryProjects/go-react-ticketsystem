@@ -19,6 +19,7 @@
         "@nuxtjs/google-fonts": "^3.2.0",
         "@nuxtjs/i18n": "^8.5.5",
         "@nuxtjs/tailwindcss": "^6.12.2",
+      "@sidebase/nuxt-auth": "^0.9.4",
         "ipx": "^3.0.1",
         "nuxt": "^3.13.2",
         "nuxt-typed-router": "^3.7.0",

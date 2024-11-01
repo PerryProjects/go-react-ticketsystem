@@ -5,7 +5,6 @@ import {enValidation} from '~/ts/i18n/locales/en/validation';
 export default defineI18nConfig(() => ({
     legacy: false,
     locale: 'de',
-    fallbackLocale: 'en',
     messages: {
         en: {
             welcome: 'Welcome',
@@ -29,6 +28,8 @@ export default defineI18nConfig(() => ({
             password: 'Password',
             admin: 'Admin',
             user: 'User',
+            german: 'German',
+            english: 'English',
             ...enValidation,
         },
         de: {
@@ -53,7 +54,8 @@ export default defineI18nConfig(() => ({
             user: 'Benutzer',
             logout: 'Ausloggen',
             settings: 'Einstellungen',
-
+            german: 'Deutsch',
+            english: 'Englisch',
             ...deValidation,
         },
     },

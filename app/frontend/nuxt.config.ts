@@ -10,8 +10,9 @@ export default defineNuxtConfig({
         'nuxt-typed-router',
         '@nuxt/image',
         '@nuxtjs/google-fonts',
+        '@sidebase/nuxt-auth',
     ],
-    css: ['@/assets/styles/fonts/google-fonts.css', '@/assets/styles/tailwind.css', '@/assets/styles/base.css'],
+    css: ['primeicons/primeicons.css', '@/assets/styles/fonts/google-fonts.css', '@/assets/styles/tailwind.css', '@/assets/styles/base.css'],
     primevue: {
         options: {
             ripple: true,
@@ -22,6 +23,7 @@ export default defineNuxtConfig({
     i18n: {
         vueI18n: './ts/i18n/i18n.config.ts',
         strategy: 'prefix_and_default',
+        defaultLocaleRouteNameSuffix: 'de',
         defaultLocale: 'de',
         experimental: {
             autoImportTranslationFunctions: true,
@@ -29,11 +31,11 @@ export default defineNuxtConfig({
         locales: [
             {
                 code: 'en',
-                name: 'English',
+                name: 'english',
             },
             {
                 code: 'de',
-                name: 'Deutsch',
+                name: 'german',
             },
         ],
         detectBrowserLanguage: {
@@ -42,9 +44,9 @@ export default defineNuxtConfig({
         },
     },
     image: {
+        provider: 'ipx',
         formats: ['webp'],
         quality: 80,
-        dir: 'assets/images',
     },
     postcss: {
         plugins: {
@@ -64,5 +66,34 @@ export default defineNuxtConfig({
         outputDir: 'assets',
         stylePath: 'styles/fonts/google-fonts.css',
         fontsPath: '../../fonts',
+    },
+    auth: {
+        isEnabled: true,
+        originEnvKey: 'AUTH_ORIGIN',
+        baseURL: `http${process.env.NODE_ENV ? '' : 's'}://${process.env.NUXT_PUBLIC_BACKEND_URL}/api/`,
+        provider: {
+            type: 'local',
+            pages: {
+                login: '/anmelden',
+            },
+            token: {
+                maxAgeInSeconds: 1800,
+            },
+            endpoints: {
+                signIn: {
+                    path: 'login',
+                    method: 'post',
+                },
+                signOut: {
+                    path: 'logout',
+                    method: 'post',
+                },
+                getSession: {
+                    path: 'session',
+                    method: 'get',
+                },
+            },
+        },
+        globalAppMiddleware: true,
     },
 });
