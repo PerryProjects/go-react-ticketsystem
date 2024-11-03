@@ -203,9 +203,6 @@ export default antfu(
                 whitelist: [
                     'pi',
                     'pi-.*',
-                    'toggle-icon',
-                    'statusColor-.*',
-                    'maintenance-tables',
                 ],
             }],
             'tailwindcss/classnames-order': 'error',

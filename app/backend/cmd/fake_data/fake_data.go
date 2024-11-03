@@ -1,16 +1,13 @@
 package fake_data
 
 import (
-	"backend/config"
-	"backend/db"
 	"backend/model"
-	"encoding/base64"
+	"backend/pkg/config"
+	"backend/pkg/password_hasher"
 	"fmt"
 	"github.com/brianvoe/gofakeit/v7"
 	"github.com/google/uuid"
 	"github.com/spf13/cobra"
-	"golang.org/x/crypto/argon2"
-	"gorm.io/gorm"
 )
 
 const saltSize = 16
@@ -28,15 +25,10 @@ var FakeDataGenerator = &cobra.Command{
 		}
 
 		config.Init()
-		dbManager := db.Init()
 		users := map[int]*model.User{}
 		for i := 0; i < count; i++ {
 
-			salt := make([]byte, 64)
-
-			// Todo: fix salt should be unique but where i get the salt from to verify the password
-			hashedPassword := argon2.IDKey([]byte(gofakeit.Password(true, true, true, true, false, gofakeit.RandomInt([]int{10, 20}))), salt, 1, 64*1024, 4, 64)
-			encodedPassword := base64.StdEncoding.EncodeToString(hashedPassword)
+			encodedPassword, _ := password_hasher.HashPassword(gofakeit.Password(true, true, true, true, false, gofakeit.RandomInt([]int{10, 20})))
 
 			users[i] = &model.User{
 				ID:        uuid.MustParse(gofakeit.UUID()),
@@ -47,12 +39,6 @@ var FakeDataGenerator = &cobra.Command{
 				Active:    gofakeit.Bool(),
 			}
 		}
-		_ = dbManager.Transaction(func(tx *gorm.DB) error {
-			for _, user := range users {
-				tx.Create(user)
-			}
-			return nil
-		})
 	},
 }
 

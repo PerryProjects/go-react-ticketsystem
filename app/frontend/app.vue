@@ -1,6 +1,16 @@
 <template>
-    <div class="grid h-screen grid-rows-[auto,1fr]">
-        <Menubar
+    <div
+        v-if="!isUserLoggedIn"
+        class="h-dvh w-dvw bg-gradient-to-b from-black via-purple-900 to-blue-900"
+    >
+        <div class="absolute right-12 top-12">
+            <ChangeLocaleMenu/>
+        </div>
+        <div class="flex h-dvh items-center justify-center">
+            <NuxtPage/>
+        </div>
+    </div>
+    <!--    <Menubar
             :model="items"
             class="rounded-none py-4"
         >
@@ -18,51 +28,19 @@
             </template>
             <template #end>
                 <div>
-                    <Button
-                        :label="$t(currentLocale!.name as string)"
-                        aria-controls="overlay_menu"
-                        aria-haspopup="true"
-                        class="w-32"
-                        icon="pi pi-angle-down"
-                        icon-pos="right"
-                        type="button"
-                        @click="toggle"
-                    />
-                    <TieredMenu
-                        id="overlay_menu"
-                        ref="menu"
-                        :model="availableLocales"
-                        popup
-                    />
+
                 </div>
             </template>
-        </Menubar>
-        <div
-            v-if="!isUserLoggedIn"
-            class="flex items-center justify-center"
-        >
-            <NuxtPage/>
-        </div>
-    </div>
+        </Menubar> -->
 </template>
 
 <script setup lang="ts">
-import type {MenuItem} from 'primevue/menuitem';
-import {ref} from 'vue';
-
 const {
     auth,
     isUserLoggedIn,
 } = useLogin();
 
 console.log(auth.status.value);
-
-const {
-    currentLocale,
-    availableLocales,
-    toggle,
-    menu,
-} = useLanguage();
 
 function useLogin() {
     const auth = useAuth();
@@ -75,35 +53,9 @@ function useLogin() {
     };
 }
 
-function useLanguage() {
-    const {
-        locale,
-        locales,
-        t,
-        setLocale,
-    } = useI18n();
-
-    const currentLocale = computed(() => locales.value.find((i) => i.code === locale.value));
-    const availableLocales = computed(() => locales.value.filter((i) => i.code !== locale.value).map((i) => ({
-        label: t(i.name as string),
-        command: () => {
-            setLocale(i.code);
-        },
-    } as MenuItem)));
-
-    const menu = ref();
-
-    function toggle(event: Event) {
-        menu.value.toggle(event);
-    }
-
-    return {
-        currentLocale,
-        availableLocales,
-        toggle,
-        menu,
-    };
-}
-
-const items = ref([]);
+// const items = ref([]);
 </script>
+
+<style scoped>
+
+</style>

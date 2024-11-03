@@ -1,3 +1,3 @@
 export const deValidation = {
-    required: '{{field}} ist erforderlich',
+    field_required: '{field} ist erforderlich',
 };

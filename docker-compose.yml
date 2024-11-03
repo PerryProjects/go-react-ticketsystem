@@ -37,7 +37,7 @@ services:
             - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_frontend.tls=false"
             - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_frontend.entrypoints=${TRAEFIK_ENTRYPOINT}"
         environment:
-            - NUXT_PUBLIC_BACKEND_URL=http://${BACKEND_DOMAIN}:${BACKEND_PORT}
+            - NUXT_PUBLIC_BACKEND_URL=http://${BACKEND_DOMAIN}
             - NUXT_TELEMETRY_DISABLED=1
             - NUXT_HOST=0.0.0.0
             - NODE_ENV=development

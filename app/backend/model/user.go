@@ -2,17 +2,15 @@ package model
 
 import (
 	"github.com/google/uuid"
-	"gorm.io/gorm"
 )
 
 type User struct {
-	gorm.Model
-	ID        uuid.UUID `gorm:"type:uuid;primary_key"`
-	FirstName string
-	LastName  string
-	Email     string
-	Password  string
-	Active    bool
+	ID        uuid.UUID `json:"id" db:"id"`
+	FirstName string    `json:"firstName" db:"first_name"`
+	LastName  string    `json:"lastName" db:"last_name"`
+	Email     string    `json:"email" db:"email"`
+	Password  string    `json:"password" db:"password"`
+	Active    bool      `json:"active" db:"active"`
 }
 
 func NewUser(firstName string, lastName string, email string, password string, active bool) (*User, error) {

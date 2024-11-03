@@ -3,6 +3,11 @@
 export default defineNuxtConfig({
     compatibilityDate: '2024-04-03',
     devtools: {enabled: true},
+    runtimeConfig: {
+        public: {
+            apiUrl: `${process.env.NUXT_PUBLIC_BACKEND_URL}`,
+        },
+    },
     modules: [
         '@primevue/nuxt-module',
         '@nuxtjs/tailwindcss',
@@ -11,6 +16,7 @@ export default defineNuxtConfig({
         '@nuxt/image',
         '@nuxtjs/google-fonts',
         '@sidebase/nuxt-auth',
+        '@vee-validate/nuxt',
     ],
     css: ['primeicons/primeicons.css', '@/assets/styles/fonts/google-fonts.css', '@/assets/styles/tailwind.css', '@/assets/styles/base.css'],
     primevue: {
@@ -70,7 +76,7 @@ export default defineNuxtConfig({
     auth: {
         isEnabled: true,
         originEnvKey: 'AUTH_ORIGIN',
-        baseURL: `http${process.env.NODE_ENV ? '' : 's'}://${process.env.NUXT_PUBLIC_BACKEND_URL}/api/`,
+        baseURL: `${process.env.NUXT_PUBLIC_BACKEND_URL}/api/`,
         provider: {
             type: 'local',
             pages: {

@@ -3,3 +3,56 @@
 :toc-title: Table of Contents
 :toclevels: 4
 :nofooter:
+:table-stripes: even
+
+= Backend
+
+== Commands
+
+=== Default
+
+[cols="s,d,d,d"]
+|===
+|Name |Command |Make Command |Description
+
+|Start Server
+|`go run main.go`
+|
+|Starts the server on port 8080
+|===
+
+=== Database
+
+[cols="s,d,d,d"]
+|===
+|Name |Command |Make Command |Description
+
+|Migration Up
+|`go run main.go`
+|`make migration-up`
+|Runs all migrations
+
+|Migration Down
+|`go run main.go`
+|`make migration-down`
+|Takes last migration down
+
+|Migration Create
+|`migrate create -ext sql -dir db/migrations %NAME%`
+|`make migration-create name=%NAME%`
+|Creates a new migration
+|===
+
+=== Project
+
+[cols="s,d,d,d"]
+|===
+
+|Name |Command |Make Command |Description
+
+|Hash Password
+|`go run cmd/main.go security:hash_password`
+|
+|Hashes a user password
+
+|===

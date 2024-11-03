@@ -1,3 +1,3 @@
 export const enValidation = {
-    required: '{{field}} is required',
+    field_required: '{field} is required',
 };

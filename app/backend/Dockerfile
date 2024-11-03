@@ -1,7 +1,7 @@
 # backend/Dockerfile
 
 # Use the official Golang image
-FROM golang:1.23
+FROM golang:1.23.2
 
 RUN apt-get update \
     && apt-get install -y ca-certificates curl gnupg \

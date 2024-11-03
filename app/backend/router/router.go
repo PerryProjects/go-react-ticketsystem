@@ -1,7 +1,7 @@
-package server
+package router
 
 import (
-	"backend/config"
+	"backend/pkg/config"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/labstack/gommon/log"
@@ -9,7 +9,7 @@ import (
 
 func NewRouter() *echo.Echo {
 	e := echo.New()
-	c := config.GetConfig()
+	c := config.Config()
 
 	if c.Get("APP_ENV") == "production" {
 		e.Logger.SetLevel(log.INFO)

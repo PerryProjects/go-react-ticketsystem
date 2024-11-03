@@ -4,7 +4,7 @@ end_of_line = lf
 indent_size = 4
 indent_style = space
 insert_final_newline = true
-max_line_length = 300
+max_line_length = 1000
 tab_width = 4
 trim_trailing_whitespace = true
 ij_continuation_indent_size = 4
@@ -18,7 +18,7 @@ ij_wrap_on_typing = false
 [*.csv]
 indent_style = tab
 ij_smart_tabs = false
-ij_visual_guides = 
+ij_visual_guides =
 ij_csv_keep_indents_on_empty_lines = true
 ij_csv_wrap_long_lines = false
 
@@ -26,7 +26,7 @@ ij_csv_wrap_long_lines = false
 indent_size = 2
 tab_width = 2
 ij_smart_tabs = false
-ij_visual_guides = 
+ij_visual_guides =
 ij_protobuf_keep_blank_lines_in_code = 2
 ij_protobuf_keep_indents_on_empty_lines = false
 ij_protobuf_keep_line_breaks = true
@@ -39,7 +39,7 @@ ij_protobuf_spaces_within_brackets = false
 [*.sass]
 ij_continuation_indent_size = 8
 ij_smart_tabs = false
-ij_visual_guides = 
+ij_visual_guides =
 ij_sass_align_closing_brace_with_properties = false
 ij_sass_blank_lines_around_nested_selector = 1
 ij_sass_blank_lines_between_blocks = 1
@@ -63,7 +63,7 @@ ij_sass_value_alignment = 0
 [*.vue]
 tab_width = 2
 ij_smart_tabs = false
-ij_visual_guides = 
+ij_visual_guides =
 ij_vue_indent_children_of_top_level = template
 ij_vue_interpolation_new_line_after_start_delimiter = true
 ij_vue_interpolation_new_line_before_end_delimiter = true
@@ -72,7 +72,7 @@ ij_vue_keep_indents_on_empty_lines = false
 ij_vue_spaces_within_interpolation_expressions = true
 
 [.editorconfig]
-ij_visual_guides = 
+ij_visual_guides =
 ij_editorconfig_align_group_field_declarations = false
 ij_editorconfig_space_after_colon = false
 ij_editorconfig_space_after_comma = true
@@ -82,12 +82,12 @@ ij_editorconfig_spaces_around_assignment_operators = true
 
 [machete]
 indent_style = tab
-ij_visual_guides = 
+ij_visual_guides =
 ij_git-machete_keep_blank_lines_in_code = 1
 ij_git-machete_keep_indents_on_empty_lines = false
 
 [{*.ad,*.adoc,*.asciidoc,.asciidoctorconfig}]
-ij_visual_guides = 
+ij_visual_guides =
 ij_asciidoc_blank_lines_after_header = 1
 ij_asciidoc_blank_lines_keep_after_header = 1
 ij_asciidoc_formatting_enabled = true
@@ -96,7 +96,7 @@ ij_asciidoc_one_sentence_per_line = true
 [{*.ant,*.fxml,*.jhm,*.jnlp,*.jrxml,*.rng,*.tld,*.wsdl,*.xlf,*.xliff,*.xml,*.xsd,*.xsl,*.xslt,*.xul}]
 ij_continuation_indent_size = 8
 ij_smart_tabs = false
-ij_visual_guides = 
+ij_visual_guides =
 ij_xml_align_attributes = true
 ij_xml_align_text = false
 ij_xml_attribute_wrap = normal
@@ -117,14 +117,14 @@ ij_xml_text_wrap = normal
 
 [{*.ats,*.cts,*.mts,*.ts}]
 ij_smart_tabs = false
-ij_visual_guides = 
+ij_visual_guides =
 ij_typescript_align_imports = false
 ij_typescript_align_multiline_array_initializer_expression = false
 ij_typescript_align_multiline_binary_operation = false
 ij_typescript_align_multiline_chained_methods = false
 ij_typescript_align_multiline_extends_list = false
 ij_typescript_align_multiline_for = true
-ij_typescript_align_multiline_parameters = true
+ij_typescript_align_multiline_parameters = false
 ij_typescript_align_multiline_parameters_in_calls = false
 ij_typescript_align_multiline_ternary_operation = false
 ij_typescript_align_object_properties = 0
@@ -176,7 +176,7 @@ ij_typescript_import_prefer_absolute_path = global
 ij_typescript_import_sort_members = true
 ij_typescript_import_sort_module_name = false
 ij_typescript_import_use_node_resolution = true
-ij_typescript_imports_wrap = on_every_item
+ij_typescript_imports_wrap = split_into_lines
 ij_typescript_indent_case_from_switch = true
 ij_typescript_indent_chained_calls = true
 ij_typescript_indent_package_children = 0
@@ -205,7 +205,7 @@ ij_typescript_prefer_explicit_types_function_expression_returns = false
 ij_typescript_prefer_explicit_types_function_returns = false
 ij_typescript_prefer_explicit_types_vars_fields = false
 ij_typescript_prefer_parameters_wrap = false
-ij_typescript_property_prefix = 
+ij_typescript_property_prefix =
 ij_typescript_reformat_c_style_comments = false
 ij_typescript_space_after_colon = true
 ij_typescript_space_after_comma = true
@@ -293,7 +293,7 @@ ij_typescript_wrap_comments = false
 [{*.bash,*.sh,*.zsh,compile}]
 indent_size = 2
 tab_width = 2
-ij_visual_guides = 
+ij_visual_guides =
 ij_shell_binary_ops_start_line = false
 ij_shell_keep_column_alignment_padding = false
 ij_shell_minify_program = false
@@ -302,7 +302,7 @@ ij_shell_switch_cases_indented = false
 ij_shell_use_unix_line_separator = true
 
 [{*.cjs,*.js}]
-ij_visual_guides = 
+ij_visual_guides =
 ij_javascript_align_imports = false
 ij_javascript_align_multiline_array_initializer_expression = true
 ij_javascript_align_multiline_binary_operation = false
@@ -358,7 +358,7 @@ ij_javascript_import_prefer_absolute_path = global
 ij_javascript_import_sort_members = true
 ij_javascript_import_sort_module_name = false
 ij_javascript_import_use_node_resolution = true
-ij_javascript_imports_wrap = on_every_item
+ij_javascript_imports_wrap = split_into_lines
 ij_javascript_indent_case_from_switch = true
 ij_javascript_indent_chained_calls = true
 ij_javascript_indent_package_children = 0
@@ -386,7 +386,7 @@ ij_javascript_prefer_explicit_types_function_expression_returns = false
 ij_javascript_prefer_explicit_types_function_returns = false
 ij_javascript_prefer_explicit_types_vars_fields = false
 ij_javascript_prefer_parameters_wrap = false
-ij_javascript_property_prefix = 
+ij_javascript_property_prefix =
 ij_javascript_reformat_c_style_comments = false
 ij_javascript_space_after_colon = true
 ij_javascript_space_after_comma = true
@@ -476,7 +476,7 @@ indent_size = 2
 tab_width = 2
 ij_continuation_indent_size = 2
 ij_smart_tabs = false
-ij_visual_guides = 
+ij_visual_guides =
 ij_css_align_closing_brace_with_properties = false
 ij_css_blank_lines_around_nested_selector = 1
 ij_css_blank_lines_between_blocks = 1
@@ -499,7 +499,7 @@ ij_css_value_alignment = do_not_align
 [{*.go,*.go2}]
 indent_style = tab
 ij_smart_tabs = false
-ij_visual_guides = 
+ij_visual_guides =
 ij_go_GROUP_CURRENT_PROJECT_IMPORTS = false
 ij_go_add_leading_space_to_comments = false
 ij_go_add_parentheses_for_single_import = false
@@ -511,7 +511,7 @@ ij_go_group_stdlib_imports = false
 ij_go_import_sorting = gofmt
 ij_go_keep_indents_on_empty_lines = false
 ij_go_local_group_mode = project
-ij_go_local_package_prefixes = 
+ij_go_local_package_prefixes =
 ij_go_move_all_imports_in_one_declaration = false
 ij_go_move_all_stdlib_imports_in_one_group = false
 ij_go_remove_redundant_import_aliases = false
@@ -528,12 +528,12 @@ ij_go_wrap_func_result_newline_after_lparen = true
 ij_go_wrap_func_result_newline_before_rparen = true
 
 [{*.gql,*.graphql,*.graphqls}]
-ij_visual_guides = 
+ij_visual_guides =
 
-[{*.graphqlconfig,*.graphqlrc,*.har,*.jsb2,*.jsb3,*.json,*.jsonc,*.postman_collection,*.postman_collection.json,*.postman_environment,*.postman_environment.json,.babelrc,.eslintrc,bowerrc,jest.config}]
+[{*.graphqlconfig,*.graphqlrc,*.har,*.jsb2,*.jsb3,*.json,*.jsonc,*.postman_collection,*.postman_collection.json,*.postman_environment,*.postman_environment.json,.babelrc,.eslintrc,.stylelintrc,.ws-context,jest.config}]
 ij_continuation_indent_size = 8
 ij_smart_tabs = false
-ij_visual_guides = 
+ij_visual_guides =
 ij_json_array_wrapping = split_into_lines
 ij_json_keep_blank_lines_in_code = 0
 ij_json_keep_indents_on_empty_lines = false
@@ -551,7 +551,7 @@ ij_json_wrap_long_lines = false
 
 [{*.htm,*.html,*.sht,*.shtm,*.shtml}]
 ij_continuation_indent_size = 8
-ij_visual_guides = 
+ij_visual_guides =
 ij_html_add_new_line_before_tags = body
 ij_html_align_attributes = true
 ij_html_align_text = false
@@ -560,7 +560,7 @@ ij_html_block_comment_add_space = false
 ij_html_block_comment_at_first_column = true
 ij_html_do_not_align_children_of_min_lines = 0
 ij_html_do_not_break_if_inline_tags = title,h1,h2,h3,h4,h5,h6,p
-ij_html_do_not_indent_children_of_tags = 
+ij_html_do_not_indent_children_of_tags =
 ij_html_enforce_quotes = true
 ij_html_inline_tags = a,abbr,acronym,b,basefont,bdo,big,br,cite,cite,code,dfn,em,font,i,img,input,kbd,label,q,s,samp,select,small,span,strike,strong,sub,sup,textarea,tt,u,var
 ij_html_keep_blank_lines = 1
@@ -581,7 +581,7 @@ ij_html_text_wrap = off
 
 [{*.http,*.rest}]
 indent_size = 0
-ij_visual_guides = 
+ij_visual_guides =
 ij_http-request_call_parameters_wrap = normal
 ij_http-request_method_parameters_wrap = split_into_lines
 ij_http-request_space_before_comma = true
@@ -590,7 +590,7 @@ ij_http-request_spaces_around_assignment_operators = true
 [{*.markdown,*.md}]
 ij_continuation_indent_size = 8
 ij_smart_tabs = false
-ij_visual_guides = 
+ij_visual_guides =
 ij_markdown_force_one_space_after_blockquote_symbol = true
 ij_markdown_force_one_space_after_header_symbol = true
 ij_markdown_force_one_space_after_list_bullet = true
@@ -611,7 +611,7 @@ ij_markdown_wrap_text_inside_blockquotes = true
 [{*.mermaid,*.mmd}]
 ij_continuation_indent_size = 8
 ij_smart_tabs = false
-ij_visual_guides = 
+ij_visual_guides =
 ij_mermaid_after_arrow_text_within_sep = false
 ij_mermaid_after_colon = true
 ij_mermaid_after_comma = true
@@ -646,14 +646,14 @@ ij_mermaid_within_node_shapes = false
 ij_mermaid_within_round = false
 ij_mermaid_within_square = false
 
-[{*.mk,GNUmakefile,makefile}]
-ij_visual_guides = 
+[{*.mk,GNUmakefile,GNUmakefile.inc,makefile,makefile.inc}]
+ij_visual_guides =
 
 [{*.pb,*.textproto,*.txtpb}]
 indent_size = 2
 tab_width = 2
 ij_smart_tabs = false
-ij_visual_guides = 
+ij_visual_guides =
 ij_prototext_keep_blank_lines_in_code = 2
 ij_prototext_keep_indents_on_empty_lines = false
 ij_prototext_keep_line_breaks = true
@@ -667,7 +667,7 @@ ij_prototext_spaces_within_brackets = false
 [{*.ps1,*.psd1,*.psm1}]
 max_line_length = 115
 ij_continuation_indent_size = 8
-ij_visual_guides = 
+ij_visual_guides =
 ij_powershell_align_multiline_binary_operation = false
 ij_powershell_align_multiline_chained_methods = false
 ij_powershell_align_multiline_for = true
@@ -764,7 +764,7 @@ indent_size = 2
 tab_width = 2
 ij_continuation_indent_size = 2
 ij_smart_tabs = false
-ij_visual_guides = 
+ij_visual_guides =
 ij_scss_align_closing_brace_with_properties = false
 ij_scss_blank_lines_around_nested_selector = 1
 ij_scss_blank_lines_between_blocks = 1
@@ -786,18 +786,27 @@ ij_scss_space_before_opening_brace = true
 ij_scss_use_double_quotes = true
 ij_scss_value_alignment = 0
 
+[{*.toml,Cargo.lock,Cargo.toml.orig,Gopkg.lock,Pipfile,poetry.lock}]
+ij_continuation_indent_size = 8
+ij_smart_tabs = false
+ij_visual_guides =
+ij_toml_keep_indents_on_empty_lines = false
+
 [{*.yaml,*.yml}]
-ij_visual_guides = 
+ij_visual_guides =
 ij_yaml_align_values_properties = do_not_align
 ij_yaml_autoinsert_sequence_marker = true
 ij_yaml_block_mapping_on_new_line = false
 ij_yaml_indent_sequence_value = true
 ij_yaml_keep_indents_on_empty_lines = false
 ij_yaml_keep_line_breaks = true
+ij_yaml_line_comment_add_space = false
+ij_yaml_line_comment_add_space_on_reformat = false
+ij_yaml_line_comment_at_first_column = true
 ij_yaml_sequence_on_new_line = false
 ij_yaml_space_before_colon = false
 ij_yaml_spaces_within_braces = true
 ij_yaml_spaces_within_brackets = true
 
 [{go.mod,go.work}]
-ij_visual_guides = 
+ij_visual_guides =
